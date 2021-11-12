@@ -1,0 +1,39 @@
+.redact {
+    display: none;
+    position: absolute;
+    z-index: 4;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  
+    background-color: var(--popup-overlay);
+}
+
+.redact--active {
+    display: block;
+}
+
+.redact__inner {
+    top: 18%;
+    width: 400px;
+    margin: 0 auto;
+    height: calc(100vh - 460px);
+    display: flex;
+    flex-direction: column;
+    padding: 20px 15px;
+    position: relative;
+    background-color: var(--white);
+    border-radius: 20px;
+    
+}
+
+.redact__wrapper::-webkit-scrollbar {
+    display: none;
+}
+
+.redact__wrapper {
+    overflow-y: auto;
+    margin-top: 20px;
+    scrollbar-width: none;
+}
