@@ -6,35 +6,27 @@ import { ActionCreators } from '../../../../../reducer';
 import PropTypes from 'prop-types';
 
 const Card = (props) => {
-    const { data, onChangePopup } = props;
+    const { userData, onChangePopup } = props;
     const onCardClick = () =>{
-        onChangePopup(data.id);
+        onChangePopup(userData);
     }; 
     return (
         <li className="results__item product">
-            <CardImage src = {data.avatar} email = {data.email} onCardClick = {onCardClick}/>
-            <CardContent data = {data} onCardClick = {onCardClick}/>
+            <CardImage src = {userData.avatar} email = {userData.email} id = {userData.id} onCardClick = {onCardClick}/>
+            <CardContent userData = {userData} onCardClick = {onCardClick}/>
         </li>
     );
 };
 
 Card.propTypes = {
     onChangePopup: PropTypes.func.isRequired,
-    data : PropTypes.object.isRequired,
-    currentActivePupup: PropTypes.number.isRequired
-};
-
-
-const mapStateToProps = (state,ownProps) => {
-    return Object.assign({}, ownProps, {
-        currentActivePupup : state.currentActivePupup 
-    });
+    userData : PropTypes.object.isRequired,
 };
 
 const mapDispathToProps = (dispath) => {
     return { 
-        onChangePopup: (id) => dispath(ActionCreators['CHANGE_ACTIVE_POPUP'](id))
+        onChangePopup: (userData) => dispath(ActionCreators['CHANGE_ACTIVE_POPUP'](userData))
     }
 };
 
-export default connect(mapStateToProps, mapDispathToProps)(Card);
+export default connect(null, mapDispathToProps)(Card);

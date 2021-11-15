@@ -4,25 +4,34 @@ import PopupColumns from './popup-columns/PopupColumns';
 import { pathLinks } from '../../consts';
 import PropTypes from 'prop-types';
 import React from 'react';
+import { connect } from 'react-redux';
 
 const Popup = (props) => {
-    const { data } = props;
+    const { currentActivePupup } = props;
 
     return (
         <React.Fragment>
             <section className="popup popup--active">
                 <div className="popup__inner">
-                    <PopupCloseBtn closeSymbol={pathLinks.home}/>
+                    <PopupCloseBtn closePath={pathLinks.home}/>
                     <div className="popup__date">Дата последнего изменения</div>
-                    <h3 className="popup__title">{data.last_name} {data.first_name}</h3>
-                    <PopupColumns data = {data}/>
+                    <h3 className="popup__title">{currentActivePupup.last_name} {currentActivePupup.first_name}</h3>
+                    <PopupColumns UserData = {currentActivePupup}/>
                 </div>
             </section>
         </React.Fragment>
     );
 
-  };
-  Popup.propTypes = {
-    data: PropTypes.object
-  };
-  export default Popup;
+};
+
+Popup.propTypes = {
+    currentActivePupup: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = (state,ownProps) => {
+    return Object.assign({}, ownProps, {
+        currentActivePupup : state.currentActivePupup 
+    });
+};
+
+export default connect(mapStateToProps)(Popup);

@@ -9,15 +9,7 @@ import {
 } from 'react-router-dom';
 import Redact from '../popup/redact/Redact';
 import { pathLinks } from '../../consts';
-import { connect } from 'react-redux';
 
-const getPopupCard = (currentActivPopup, cards) =>{
-  for (const item of cards) {
-    if (item.id === currentActivPopup) {
-      return item;
-    }
-  }
-};
 /* 
 const onError = (errorMessage) => {
   console.log(errorMessage);
@@ -33,8 +25,7 @@ const getServerData = (onLoad, onError, url) => {
 
 
 const App = (props) => {
-
-  const { data, currentActivePupup } = props;
+  const { data } = props;
   /* 
   let [isData, setData] = useState(false);
   let [isUrl, setUrl] = useState("https://reqres.in/api/users?page=1");
@@ -53,31 +44,20 @@ const App = (props) => {
   if (!isData) {
     getServerData(onLoad,onError,isUrl);
   } */
-
+  
   return <Routes>
       <Route path = {pathLinks.home} element={<Main data = {data} />} />
-      <Route path = {pathLinks.popup} element={<Popup data = {getPopupCard(currentActivePupup, data)} />} />
-      <Route path = {pathLinks.redaction} element={<Redact data = {getPopupCard(currentActivePupup, data)} />} />
+      <Route path = {pathLinks.popup} element={<Popup  />} />
+      <Route path = {pathLinks.redaction} element={<Redact />} />
       <Route path="/" element={<Navigate replace to="/home" />} />
     </Routes>
 };
 
 App.propTypes = {
   data: PropTypes.arrayOf(Object),
-  currentActivePupup: PropTypes.number.isRequired
 };
 
-const mapStateToProps = (state,ownProps) => {
-  return Object.assign({}, ownProps, {
-      currentActivePupup : state.currentActivePupup 
-  });
-};
-
-const mapDispathToProps = (dispath) => {
-  return {}
-};
-
-export default connect(mapStateToProps, mapDispathToProps)(App);
+export default App;
 
 
 

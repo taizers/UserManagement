@@ -9,6 +9,7 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { reducer } from './reducer';
 
+//данные с сервера в createStore передать вторым параметром данные
 
 const init = (data) =>{
   //const api = createApi();

@@ -1,42 +1,55 @@
 import './PopupColumns.css';
 import PopupChars from './popup-chars/PopupChars';
-import { Link } from 'react-router-dom';
+import { generatePath } from 'react-router';
+import { pathLinks } from '../../../consts';
+import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 
 const PopupColumns = (props) => {
-    const { data } = props;
+    const { UserData } = props;
+    const navigate = useNavigate();
+    const pathToRedaction = generatePath(pathLinks.redaction, { id: UserData.id });
+
+    const onClickRedactionBtn = () =>{
+        navigate(pathToRedaction);
+    };
+
     return (
         <div className="popup__columns">
         <div className="popup__left">
-            <img srcSet={data.avatar}  width="520" height="340" alt={data.email} />
+            <img srcSet={UserData.avatar}  width="520" height="340" alt={UserData.email} />
         </div>
         <div className="popup__right">
             <PopupChars 
-                data = {
+                UserData = {
                     [
                         {
-                            id : "Фамилия" + data.last_name,
+                            id : "Фамилия" + UserData.last_name,
                             name : "Фамилия",
-                            value : data.last_name
+                            value : UserData.last_name
                         },
                         {
-                            id : "Имя" + data.first_name,
+                            id : "Имя" + UserData.first_name,
                             name : "Имя",
-                            value : data.first_name
+                            value : UserData.first_name
                         },
                         {
-                            id : "Почта" + data.email,
+                            id : "Почта" + UserData.email,
                             name : "Почта",
-                            value : data.email
+                            value : UserData.email
                         }
                     ]
                 }
             />
-            <Link to="/redaction">
-                <button className="button popup__button" type="button">Редактировать</button>
-            </Link>
+            <button className="button popup__button" type="button" onClick = {onClickRedactionBtn}>Редактировать</button>
         </div>
     </div>
     );
+};
+
+
+PopupColumns.propTypes = {
+    UserData: PropTypes.object.isRequired,
 };
 
 export default PopupColumns;

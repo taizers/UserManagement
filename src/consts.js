@@ -1,5 +1,5 @@
 export const pathLinks = {
     home: '/home',
-    popup: '/popup',
-    redaction: '/redaction'
+    popup: '/popup/:id',
+    redaction: '/popup/:id/redaction'
 };

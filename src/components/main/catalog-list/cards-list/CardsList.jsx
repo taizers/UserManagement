@@ -7,7 +7,7 @@ const CardsList = (props) => {
         <ul className="results__list">
             {
                 cardsData.map(item => (
-                    <Card key = {item.id} data = {item}/>
+                    <Card key = {item.id} userData = {item}/>
                 ))
             }
         </ul>
