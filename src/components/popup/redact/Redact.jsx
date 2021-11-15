@@ -2,14 +2,14 @@ import './Redact.css';
 import PopupCloseBtn from './popup-close-btn/PopupCloseBtn';
 import RedactInput from './redact-input/RedactInput';
 import { useState } from 'react/cjs/react.development';
+import React from 'react';
+import { pathLinks } from '../../../consts';
 
 const Redact = (props) => {
-    let [isFamily,setFamily] = useState(props.data.last_name);
-    let [isName,setName] = useState(props.data.first_name);
+    const { data } = props;
 
-    const onCloseBtnClick = () =>{
-        props.onRedactBtnClose();
-    };
+    let [isFamily,setFamily] = useState(data.last_name);
+    let [isName,setName] = useState(data.first_name);
 
     const onChangeInputFamily = (e) => {
         setFamily(isFamily = e.target.value);
@@ -17,44 +17,23 @@ const Redact = (props) => {
     const onChangeInputName = (e) => {
         setName(isName = e.target.value);
     };
-    const updateDate = (data) =>{
-        console.log("++++2 " , data);
+    const onSubmitForm = (evt) =>{
+        evt.preventDefault();
+        alert(isFamily +" "+  isName);
     };
 
-    const onRedactBtnClick = () => {
-        if (isName !== props.data.first_name || isFamily !== props.data.last_name) {
-            const put = {
-                "last_name" : isFamily,
-                "first_name" : isName
-            };
-
-            const requestOptions = {
-                method: 'PUT',
-                headers: { 'data': 'application/json' },
-                body: JSON.stringify(put)
-            };
-
-            fetch("https://reqres.in/api/users?page=" + props.data.id, requestOptions)
-                .then(response => response.json())
-                .then(data => updateDate(data));
-        }
-    };
-
-    if (props.isActiv) {
-        return (
-            <div className="redact redact--active">
-                <div className="redact__inner">
-                    <PopupCloseBtn onCloseBtnClick ={onCloseBtnClick}/>
-                    <div className="redact__wrapper">
-                        <RedactInput name = "Фамилия" value = {isFamily} onChangeInputValue = {onChangeInputFamily}/>
-                        <RedactInput name = "Имя" value = {isName} onChangeInputValue = {onChangeInputName}/>
-                        <button className="button popup__button" type="button" onClick = {onRedactBtnClick}>Сохранить</button>
-                    </div>
-                </div> 
-            </div>
-        );
-    }else
-    return ""
+    return (
+        <div className="redact redact--active">
+            <div className="redact__inner">
+                <PopupCloseBtn closeSymbol={pathLinks.popup}/>
+                <form className="redact__wrapper" action="" onSubmit = {onSubmitForm}>
+                    <RedactInput name = "Фамилия" value = {isFamily} onChangeInputValue = {onChangeInputFamily}/>
+                    <RedactInput name = "Имя" value = {isName} onChangeInputValue = {onChangeInputName}/>
+                    <button className="button popup__button" type="submit">Сохранить</button>
+                </form>
+            </div> 
+        </div>
+    );
     
 };
 

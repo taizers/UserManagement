@@ -1,6 +1,6 @@
 .popup {
     display: none;
-    position: absolute;
+    position: fixed;
     z-index: 3;
     top: 0;
     bottom: 0;
@@ -15,16 +15,18 @@
 }
 
 .popup__inner {
-    top: 60px;
     width: 896px;
     margin: 0 auto;
     height: calc(100vh - 120px);
     display: flex;
     flex-direction: column;
     padding: 32px 34px;
-    position: relative;
+    position: absolute;
+    transform: translateX(-50%);
+    left: 50%;
     background-color: var(--white);
     border-radius: 4px;
+    top: 60px;
 }
 
 .popup__date {

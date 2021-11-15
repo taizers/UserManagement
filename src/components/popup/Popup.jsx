@@ -1,37 +1,28 @@
-import { useState } from 'react';
 import './Popup.css';
-import Redact from './redact/Redact';
 import PopupCloseBtn from './redact/popup-close-btn/PopupCloseBtn';
 import PopupColumns from './popup-columns/PopupColumns';
+import { pathLinks } from '../../consts';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 const Popup = (props) => {
-    let [isRedactActiv, setRedactActiv] = useState(false);
-    
-    const onCloseBtnClick = () =>{
-        props.onChangePopup(false);
-    };
+    const { data } = props;
 
-    const onRedactBtnClick = () => {
-        setRedactActiv(isRedactActiv = true);   
-    };
-    const onRedactBtnClose = () => {
-        setRedactActiv(isRedactActiv = false);   
-    };
-
-    if (props.data != null) {
-        return (
+    return (
+        <React.Fragment>
             <section className="popup popup--active">
                 <div className="popup__inner">
-                    <PopupCloseBtn onCloseBtnClick = {onCloseBtnClick}/>
+                    <PopupCloseBtn closeSymbol={pathLinks.home}/>
                     <div className="popup__date">Дата последнего изменения</div>
-                    <h3 className="popup__title">{props.data.last_name} {props.data.first_name}</h3>
-                    <PopupColumns onRedactBtnClick = {onRedactBtnClick} data = {props.data}/>
-                    <Redact onRedactBtnClose = {onRedactBtnClose} isActiv ={isRedactActiv} data = {props.data}/>
+                    <h3 className="popup__title">{data.last_name} {data.first_name}</h3>
+                    <PopupColumns data = {data}/>
                 </div>
             </section>
-        );
-    }else
-    return "";
-  }
-  
+        </React.Fragment>
+    );
+
+  };
+  Popup.propTypes = {
+    data: PropTypes.object
+  };
   export default Popup;

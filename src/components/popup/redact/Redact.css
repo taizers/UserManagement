@@ -18,7 +18,7 @@
     top: 18%;
     width: 400px;
     margin: 0 auto;
-    height: calc(100vh - 460px);
+    height: calc(100vh - 350px);
     display: flex;
     flex-direction: column;
     padding: 20px 15px;

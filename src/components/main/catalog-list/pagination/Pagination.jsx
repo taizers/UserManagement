@@ -1,6 +1,6 @@
 import './Pagination.css';
 import PaginationItem from './pagination-item/PaginationItem';
-import { useState } from 'react';
+import PropTypes from 'prop-types';
 
 const getPaginationList = (total) =>{
     let list = [];
@@ -19,23 +19,25 @@ const Pagination = (props) => {
         //setPaginationActivNumber(isActivPaginationnumber = number);
         props.onSetUrl(number);
     }; */
+    //           <li><a href="#" className="prev">&laquo;</a></li>
+    //           <li><a href="#" className="next">&raquo;</a></li>
+    const { totalPages } = props;
     return (
         <ul className="pagination">
-            <li><a href="#" className="prev">&laquo;</a></li>
             {
-                getPaginationList(props.totalPages).map(item => (
+                getPaginationList(totalPages).map(item => (
                     <PaginationItem 
-                        key = {item} 
+                        key = {"pagination-item-"+item} 
                         number = {item} 
-                        page = {props.page}
-                        onSetUrl = {props.onSetUrl}
-
                     />
                 ))
             }   
-            <li><a href="#" className="next">&raquo;</a></li>
         </ul>
     );
+};
+
+Pagination.propTypes = {
+    totalPages: PropTypes.number.isRequired
 };
 
 export default Pagination;

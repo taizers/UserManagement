@@ -1,14 +1,13 @@
 import Card from './card/Card';
 import './CardsList.css';
 
-/*  */
-
 const CardsList = (props) => {
+    const { cardsData } = props;
     return (
         <ul className="results__list">
             {
-                props.cardsData.map(item => (
-                    <Card key = {item.id} data = {item} onChangePopup = {props.onChangePopup}/>
+                cardsData.map(item => (
+                    <Card key = {item.id} data = {item}/>
                 ))
             }
         </ul>
