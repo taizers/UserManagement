@@ -26,7 +26,7 @@ const Redact = (props) => {
         <div className="redact redact--active">
             <div className="redact__inner">
                 <PopupCloseBtn closeSymbol={pathLinks.popup}/>
-                <form className="redact__wrapper" action="" onSubmit = {onSubmitForm}>
+                <form className="redact__form" action="" onSubmit = {onSubmitForm}>
                     <RedactInput name = "Фамилия" value = {isFamily} onChangeInputValue = {onChangeInputFamily}/>
                     <RedactInput name = "Имя" value = {isName} onChangeInputValue = {onChangeInputName}/>
                     <button className="button popup__button" type="submit">Сохранить</button>

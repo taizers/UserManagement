@@ -28,11 +28,11 @@
     
 }
 
-.redact__wrapper::-webkit-scrollbar {
+.redact__form::-webkit-scrollbar {
     display: none;
 }
 
-.redact__wrapper {
+.redact__form {
     overflow-y: auto;
     margin-top: 20px;
     scrollbar-width: none;
