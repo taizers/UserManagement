@@ -1,31 +1,15 @@
 import './Pagination.css';
 import PaginationItem from './pagination-item/PaginationItem';
 import PropTypes from 'prop-types';
-
-const getPaginationList = (total) =>{
-    let list = [];
-
-    for (let index = 1; index <= total; index++) {
-        list.push(index);
-    }
-
-    return list;
-};
+import { connect } from 'react-redux';
 
 const Pagination = (props) => {
-    //let [isActivPaginationnumber, setPaginationActivNumber] = useState(1);
+    const { pages } = props;
 
-/*     const onPaginationActiv = (number) => {
-        //setPaginationActivNumber(isActivPaginationnumber = number);
-        props.onSetUrl(number);
-    }; */
-    //           <li><a href="#" className="prev">&laquo;</a></li>
-    //           <li><a href="#" className="next">&raquo;</a></li>
-    const { totalPages } = props;
     return (
         <ul className="pagination">
             {
-                getPaginationList(totalPages).map(item => (
+                pages.map(item => (
                     <PaginationItem 
                         key = {"pagination-item-"+item} 
                         number = {item} 
@@ -37,7 +21,13 @@ const Pagination = (props) => {
 };
 
 Pagination.propTypes = {
-    totalPages: PropTypes.number.isRequired
+    pages: PropTypes.arrayOf(PropTypes.number).isRequired
 };
 
-export default Pagination;
+const mapStateToProps = (state,ownProps) => {
+    return Object.assign({}, ownProps, {
+        pages : state.pages,
+    });
+};
+  
+export default connect(mapStateToProps)(Pagination);

@@ -2,30 +2,31 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/app/App';
-import {users} from './mocks/mocks.json';
-//import {Router, Switch, BrowserRouter} from 'react-router-dom';
 import { BrowserRouter } from 'react-router-dom';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
-import { reducer } from './reducer';
+import { reducer, Operation } from './reducer';
+import thunk from 'redux-thunk';
+import { createApi } from './api';
 
 //данные с сервера в createStore передать вторым параметром данные
 
-const init = (data) =>{
-  //const api = createApi();
-  const store = createStore(reducer);
-  
+const init = () => {
+  const api = createApi();
+  const store = createStore(reducer,applyMiddleware(thunk.withExtraArgument(api)));
+  store.dispatch(Operation.loadData());
+
   ReactDOM.render(
     <Provider store={store}>
       <BrowserRouter>
-        <App data = {data}/>
+        <App />
       </BrowserRouter>
     </Provider>
     ,
     document.querySelector('#root'));
 };
 
-init(users);
+init();
 
 
 

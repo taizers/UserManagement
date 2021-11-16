@@ -1,7 +1,7 @@
 import './App.css';
 import Main from '../main/Main';
 import Popup from '../popup/Popup';
-import PropTypes from 'prop-types';
+import ErrorPage from '../error-page/ErrorPage';
 import {
   Routes,
   Route,
@@ -24,8 +24,7 @@ const getServerData = (onLoad, onError, url) => {
 }; */
 
 
-const App = (props) => {
-  const { data } = props;
+const App = () => {
   /* 
   let [isData, setData] = useState(false);
   let [isUrl, setUrl] = useState("https://reqres.in/api/users?page=1");
@@ -46,15 +45,13 @@ const App = (props) => {
   } */
   
   return <Routes>
-      <Route path = {pathLinks.home} element={<Main data = {data} />} />
+      <Route path = {pathLinks.home} element={<Main />} />
       <Route path = {pathLinks.popup} element={<Popup  />} />
       <Route path = {pathLinks.redaction} element={<Redact />} />
-      <Route path="/" element={<Navigate replace to="/home" />} />
+      <Route path = {pathLinks.error} element={<ErrorPage />} />
+      <Route path = "/" element={<Navigate replace to={pathLinks.home} />} />
+      <Route path = "*" element={<Navigate replace to={pathLinks.error} />} />
     </Routes>
-};
-
-App.propTypes = {
-  data: PropTypes.arrayOf(Object),
 };
 
 export default App;

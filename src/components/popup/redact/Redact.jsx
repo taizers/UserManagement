@@ -23,6 +23,7 @@ const Redact = (props) => {
     const onChangeInputName = (e) => {
         setFirstName(firstName = e.target.value);
     }; 
+    
     const onSubmitForm = (evt) =>{
         evt.preventDefault();
         currentActivePupup.first_name = firstName;

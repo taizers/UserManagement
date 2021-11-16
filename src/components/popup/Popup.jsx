@@ -5,13 +5,16 @@ import { pathLinks } from '../../consts';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 const Popup = (props) => {
     const { currentActivePupup } = props;
+    const navigate = useNavigate();
 
-    return (
-        <React.Fragment>
-            <section className="popup popup--active">
+    if (JSON.stringify(currentActivePupup) !== '{}') {
+        
+         return (
+            <section className="popup">
                 <div className="popup__inner">
                     <PopupCloseBtn closePath={pathLinks.home}/>
                     <div className="popup__date">Дата последнего изменения</div>
@@ -19,9 +22,12 @@ const Popup = (props) => {
                     <PopupColumns UserData = {currentActivePupup}/>
                 </div>
             </section>
-        </React.Fragment>
-    );
-
+        );
+    }else{
+        navigate(pathLinks.error);
+        return "";
+    }
+   
 };
 
 Popup.propTypes = {
