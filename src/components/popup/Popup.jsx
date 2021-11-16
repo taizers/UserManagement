@@ -17,7 +17,7 @@ const Popup = (props) => {
             <section className="popup">
                 <div className="popup__inner">
                     <PopupCloseBtn closePath={pathLinks.home}/>
-                    <div className="popup__date">Дата последнего изменения</div>
+                    <div className="popup__date">{currentActivePupup.updateAt? currentActivePupup.updateAt: ""}</div>
                     <h3 className="popup__title">{currentActivePupup.last_name} {currentActivePupup.first_name}</h3>
                     <PopupColumns UserData = {currentActivePupup}/>
                 </div>

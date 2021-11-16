@@ -2,13 +2,14 @@ import './Card.css';
 import CardImage from './card-image/CardImage';
 import CardContent from './card-content/CardContent';
 import { connect } from 'react-redux';
-import { ActionCreators } from '../../../../../reducer';
+import { Operation, ActionCreators } from '../../../../../reducer';
 import PropTypes from 'prop-types';
 
 const Card = (props) => {
-    const { userData, onChangePopup } = props;
+    const { userData, changePopup } = props;
     const onCardClick = () =>{
-        onChangePopup(userData);
+        //changePopup(userData.id);
+        changePopup(userData);
     }; 
     return (
         <li className="results__item product">
@@ -19,13 +20,14 @@ const Card = (props) => {
 };
 
 Card.propTypes = {
-    onChangePopup: PropTypes.func.isRequired,
+    changePopup: PropTypes.func.isRequired,
     userData : PropTypes.object.isRequired,
 };
 
 const mapDispathToProps = (dispath) => {
     return { 
-        onChangePopup: (userData) => dispath(ActionCreators['CHANGE_ACTIVE_POPUP'](userData))
+        //changePopup: (id) => dispath(Operation.changePopup(id))
+        changePopup: (userData) => dispath(ActionCreators["CHANGE_ACTIVE_POPUP"](userData))
     }
 };
 

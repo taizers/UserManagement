@@ -27,7 +27,7 @@ const actionType = {
 
 const Operation = {
     loadData: (page) => (dispatch, _getState, api) => {
-/*         return api.get()
+        /*   return api.get()
         .then((response) =>{
             dispatch(ActionCreators.LOAD_DATA(response.data));
             dispatch(ActionCreators.LOAD_TOTAL_PAGES(response.total_pages));
@@ -38,24 +38,35 @@ const Operation = {
                 dispatch(ActionCreators.LOAD_DATA(data.data));
                 dispatch(ActionCreators.LOAD_TOTAL_PAGES(data.total_pages));
             });
-    },
+        },
     changeData: (page) => (dispatch, _getState, api) => {
-        /*         return api.get()
-            .then((response) =>{
-                dispatch(ActionCreators.LOAD_DATA(response.data));
-                dispatch(ActionCreators.LOAD_TOTAL_PAGES(response.total_pages));
-            }); */
-            fetch("https://reqres.in/api/users?page=" + page)
-                .then((response) => response.json())
-                .then((data) =>{
-                    dispatch(ActionCreators.LOAD_DATA(data.data));
-                });
+
+        fetch("https://reqres.in/api/users?page=" + page)
+            .then((response) => response.json())
+            .then((data) =>{
+                dispatch(ActionCreators.LOAD_DATA(data.data));
+            });
+    },
+    uptateServerData: (formData, id) => (dispatch, _getState, api) => {
+
+        fetch("https://reqres.in/api/users/" + id, {
+            method: 'POST',
+            body: formData
+            })
+        .then(response => console.log(response.data +"fffffffffffff"))
+        .catch(error => console.error(error));
+
+/*      fetch("https://reqres.in/api/users/" + id)
+        .then((response) => response.json())
+        .then((data) =>{
+            dispatch(ActionCreators.CHANGE_ACTIVE_POPUP(data.data));
+        }); */
     },
 };
 
-const ActionCreators = {// функция для логики
+const ActionCreators = {
     CHANGE_ACTIVE_POPUP: (currentActivePupupData) =>{
-        //какaя то логика
+
         return {
             type: actionType.CHANGE_ACTIVE_POPUP,
             payload: currentActivePupupData
@@ -76,7 +87,7 @@ const ActionCreators = {// функция для логики
         }
     },
     LOAD_DATA : (users) =>{
-        console.log(users + "                 ssssss");
+
         return {
             type: actionType.LOAD_DATA,
             payload: users
