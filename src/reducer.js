@@ -26,20 +26,30 @@ const actionType = {
 };
 
 const Operation = {
-    loadData: () => (dispatch, _getState, api) => {
-        console.log(api());
-        return api.get("?page=" + _getState().currentPage)
+    loadData: (page) => (dispatch, _getState, api) => {
+/*         return api.get()
         .then((response) =>{
-            
             dispatch(ActionCreators.LOAD_DATA(response.data));
             dispatch(ActionCreators.LOAD_TOTAL_PAGES(response.total_pages));
-        });
-/*         fetch("https://reqres.in/api/users?page=1")
+        }); */
+        fetch("https://reqres.in/api/users?page=" + page)
             .then((response) => response.json())
             .then((data) =>{
                 dispatch(ActionCreators.LOAD_DATA(data.data));
                 dispatch(ActionCreators.LOAD_TOTAL_PAGES(data.total_pages));
+            });
+    },
+    changeData: (page) => (dispatch, _getState, api) => {
+        /*         return api.get()
+            .then((response) =>{
+                dispatch(ActionCreators.LOAD_DATA(response.data));
+                dispatch(ActionCreators.LOAD_TOTAL_PAGES(response.total_pages));
             }); */
+            fetch("https://reqres.in/api/users?page=" + page)
+                .then((response) => response.json())
+                .then((data) =>{
+                    dispatch(ActionCreators.LOAD_DATA(data.data));
+                });
     },
 };
 
@@ -91,6 +101,7 @@ const reducer = (state = initialState, action) =>{
                 currentActivePupup: action.payload
             });
         case actionType.CHANGE_ACTIVE_PAGE:
+            Operation.loadData();
             return Object.assign({}, state, {
                 currentPage: action.payload
             });

@@ -29,5 +29,6 @@ const mapStateToProps = (state,ownProps) => {
         pages : state.pages,
     });
 };
+
   
 export default connect(mapStateToProps)(Pagination);

@@ -15,7 +15,7 @@ const init = () => {
   const api = createApi();
   const store = createStore(reducer,applyMiddleware(thunk.withExtraArgument(api)));
 
-  store.dispatch(Operation.loadData());
+  store.dispatch(Operation.loadData(1));
 
   ReactDOM.render(
     <Provider store={store}>
