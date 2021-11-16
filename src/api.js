@@ -1,17 +1,20 @@
 import axios from 'axios';
 import { pathLinks } from './consts';
 
-export const createApi = () =>{
+const TIMEOUT = 5000;
+const BASE_URL = "https://reqres.in/api/users";
+
+const createApi = () =>{
     const api = axios.create({
-        baseUrl: "https://reqres.in/api/users?page=", //'url', добавлять в запросах номер страницы в url
-        timeout: 1000 * 5,
+        baseUrl: BASE_URL, 
+        timeout: TIMEOUT,
         withCredentials: true,
     });
     const onSuccess = (response) => response;
     const onFail = (err) =>{
         if (err.response.status === 403) {
             console.log("error");
-            //History().pushState(null,null,pathLinks.error);
+            //history.pushState(null,null,pathLinks.error);
         }
         return err;
     };
@@ -20,3 +23,4 @@ export const createApi = () =>{
     return api;
 };
 
+export default createApi;

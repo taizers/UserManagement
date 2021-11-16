@@ -26,10 +26,11 @@ const actionType = {
 };
 
 const Operation = {
-    loadData: () => (dispatch, api) => {
-        console.log(initialState.currentPage);
-        return api.get(initialState.currentPage)
+    loadData: () => (dispatch, _getState, api) => {
+        console.log(api());
+        return api.get("?page=" + _getState().currentPage)
         .then((response) =>{
+            
             dispatch(ActionCreators.LOAD_DATA(response.data));
             dispatch(ActionCreators.LOAD_TOTAL_PAGES(response.total_pages));
         });
