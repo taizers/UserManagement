@@ -9,8 +9,6 @@ import { reducer, Operation } from './reducer';
 import thunk from 'redux-thunk';
 import createApi from './api';
 
-//данные с сервера в createStore передать вторым параметром данные
-
 const init = () => {
   const api = createApi();
   const store = createStore(reducer,applyMiddleware(thunk.withExtraArgument(api)));

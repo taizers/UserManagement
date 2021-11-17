@@ -121,6 +121,7 @@ const reducer = (state = initialState, action) =>{
             return Object.assign({}, state, {
                 currentCarsData: action.payload
             });
+
         case actionType.LOAD_TOTAL_PAGES:
             return Object.assign({}, state, {
                 pages: action.payload

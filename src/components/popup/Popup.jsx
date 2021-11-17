@@ -6,8 +6,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
 
-const Popup = (props) => {
-    const { currentActivePupup } = props;
+const Popup = ({ currentActivePupup }) => {
 
     return (
         <section className="popup">
