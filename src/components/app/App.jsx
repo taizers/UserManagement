@@ -7,7 +7,7 @@ import {
   Route,
   Navigate
 } from 'react-router-dom';
-import Redact from '../popup/redact/Redact';
+import Redaction from '../popup/redact/Redaction';
 import { pathLinks } from '../../consts';
 
 /* 
@@ -47,7 +47,7 @@ const App = () => {
   return <Routes>
       <Route path = {pathLinks.home} element={<Main />} />
       <Route path = {pathLinks.popup} element={<Popup  />} />
-      <Route path = {pathLinks.redaction} element={<Redact />} />
+      <Route path = {pathLinks.redaction} element={<Redaction />} />
       <Route path = {pathLinks.error} element={<ErrorPage />} />
       <Route path = "/" element={<Navigate replace to={pathLinks.home} />} />
       <Route path = "*" element={<Navigate replace to={pathLinks.error} />} />

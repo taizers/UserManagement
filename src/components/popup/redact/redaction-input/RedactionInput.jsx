@@ -1,13 +1,13 @@
-import './RedactInput.css';
+import './RedactionInput.css';
 
-const RedactInput = (props) => {
+const RedactionInput = (props) => {
     
     return (
-        <div className="redact__min-square">
+        <div className="redaction__input">
             <label htmlFor={props.value + props.name}>{props.name}</label>
             <input type="text" id={props.value + props.name} name={props.value} defaultValue={props.value} onChange = {props.onChangeInputValue} />
         </div>
     );
 };
 
-export default RedactInput;
+export default RedactionInput;

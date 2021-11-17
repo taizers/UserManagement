@@ -1,20 +1,12 @@
+import { pathLinks } from "./consts";
+import { useNavigate } from "react-router";
+
 const initialState = {
     currentActivePupup: {},
     currentPage: 1,
     currentCarsData: [],
     pages: [],
 };
-
-/* 
-return axios({
-    method: 'get'
-    url : 'url'
-}).then(res => {
-    console.log(res.data);
-})
-*/
-
-
 
 const actionType = {
     CHANGE_ACTIVE_POPUP: 'CHANGE_ACTIVE_POPUP',
@@ -37,6 +29,10 @@ const Operation = {
             .then((data) =>{
                 dispatch(ActionCreators.LOAD_DATA(data.data));
                 dispatch(ActionCreators.LOAD_TOTAL_PAGES(data.total_pages));
+            })
+            .catch(() => {
+                const navigate = useNavigate();
+                navigate(pathLinks.error);
             });
         },
     changeData: (page) => (dispatch, _getState, api) => {
@@ -45,6 +41,10 @@ const Operation = {
             .then((response) => response.json())
             .then((data) =>{
                 dispatch(ActionCreators.LOAD_DATA(data.data));
+            })
+            .catch(() => {
+                const navigate = useNavigate();
+                navigate(pathLinks.error);
             });
     },
     uptateServerData: (formData, id) => (dispatch, _getState, api) => {
@@ -54,13 +54,10 @@ const Operation = {
             body: formData
             })
         .then(response => console.log(response.data +"fffffffffffff"))
-        .catch(error => console.error(error));
-
-/*      fetch("https://reqres.in/api/users/" + id)
-        .then((response) => response.json())
-        .then((data) =>{
-            dispatch(ActionCreators.CHANGE_ACTIVE_POPUP(data.data));
-        }); */
+        .catch(() => {
+            const navigate = useNavigate();
+            navigate(pathLinks.error);
+        });
     },
 };
 

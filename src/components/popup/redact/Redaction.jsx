@@ -1,6 +1,6 @@
-import './Redact.css';
+import './Redaction.css';
 import PopupCloseBtn from './popup-close-btn/PopupCloseBtn';
-import RedactInput from './redact-input/RedactInput';
+import RedactionInput from './redaction-input/RedactionInput';
 import { useState } from 'react/cjs/react.development';
 import React from 'react';
 import { pathLinks } from '../../../consts';
@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 import { ActionCreators, Operation } from '../../../reducer';
 import { generatePath } from 'react-router';
 
-const Redact = (props) => {
+const Redaction = (props) => {
     const { currentActivePupup, onChangeUserData, updateServerData } = props;
 
     let [lastName,setLastName] = useState(currentActivePupup.last_name);
@@ -48,12 +48,12 @@ const Redact = (props) => {
     }; 
 
     return (
-        <div className="redact redact--active">
-            <div className="redact__inner">
+        <div className="redaction">
+            <div className="redaction__inner">
                 <PopupCloseBtn closePath={pathToPopup}/>
-                <form className="redact__form" action="" onSubmit = {onSubmitForm}>
-                    <RedactInput name = "Фамилия" value = {lastName} onChangeInputValue = {onChangeInputFamily}/>
-                    <RedactInput name = "Имя" value = {firstName} onChangeInputValue = {onChangeInputName}/>
+                <form className="redaction__form" action="" onSubmit = {onSubmitForm}>
+                    <RedactionInput name = "Фамилия" value = {lastName} onChangeInputValue = {onChangeInputFamily}/>
+                    <RedactionInput name = "Имя" value = {firstName} onChangeInputValue = {onChangeInputName}/>
                     <button className="button popup__button" type="submit">Сохранить</button>
                 </form>
             </div> 
@@ -62,7 +62,7 @@ const Redact = (props) => {
     
 };
 
-Redact.propTypes = {
+Redaction.propTypes = {
     currentActivePupup: PropTypes.object.isRequired,
     onChangeUserData: PropTypes.func.isRequired,
     updateServerData: PropTypes.func.isRequired,
@@ -81,4 +81,4 @@ const mapDispathToProps = (dispath) => {
     }
 };
 
-export default connect(mapStateToProps,mapDispathToProps)(Redact);
+export default connect(mapStateToProps,mapDispathToProps)(Redaction);

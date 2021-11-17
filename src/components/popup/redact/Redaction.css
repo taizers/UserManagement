@@ -1,5 +1,4 @@
-.redact {
-    display: none;
+.redaction {
     position: absolute;
     z-index: 4;
     top: 0;
@@ -10,11 +9,7 @@
     background-color: var(--popup-overlay);
 }
 
-.redact--active {
-    display: block;
-}
-
-.redact__inner {
+.redaction__inner {
     top: 18%;
     width: 400px;
     margin: 0 auto;
@@ -28,11 +23,11 @@
     
 }
 
-.redact__form::-webkit-scrollbar {
+.redaction__form::-webkit-scrollbar {
     display: none;
 }
 
-.redact__form {
+.redaction__form {
     overflow-y: auto;
     margin-top: 20px;
     scrollbar-width: none;
