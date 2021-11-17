@@ -7,7 +7,7 @@ import {
   Route,
   Navigate
 } from 'react-router-dom';
-import Redaction from '../popup/redact/Redaction';
+import Redaction from '../popup/redaction/Redaction';
 import { pathLinks } from '../../consts';
 
 /* 

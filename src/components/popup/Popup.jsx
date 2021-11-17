@@ -1,5 +1,5 @@
 import './Popup.css';
-import PopupCloseBtn from './redact/popup-close-btn/PopupCloseBtn';
+import PopupCloseBtn from './redaction/popup-close-btn/PopupCloseBtn';
 import PopupColumns from './popup-columns/PopupColumns';
 import { pathLinks } from '../../consts';
 import PropTypes from 'prop-types';
