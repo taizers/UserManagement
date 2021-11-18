@@ -5,8 +5,7 @@ import { pathLinks } from '../../../consts';
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 
-const PopupColumns = (props) => {
-    const { UserData } = props;
+const PopupColumns = ({ UserData }) => {
     const navigate = useNavigate();
     const pathToRedaction = generatePath(pathLinks.redaction, { id: UserData.id });
 

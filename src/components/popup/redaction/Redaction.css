@@ -1,6 +1,5 @@
 .redaction {
     position: absolute;
-    z-index: 4;
     top: 0;
     bottom: 0;
     left: 0;
@@ -20,7 +19,6 @@
     position: relative;
     background-color: var(--white);
     border-radius: 20px;
-    
 }
 
 .redaction__form::-webkit-scrollbar {

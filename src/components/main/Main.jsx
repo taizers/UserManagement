@@ -1,7 +1,7 @@
 import './Main.css';
 import CatalogList from './catalog-list/CatalogList';
 import React from 'react';
-import Header from '../header/Header';
+import Header from '../Header/Header';
 
 const Main = () => {
     return ( 

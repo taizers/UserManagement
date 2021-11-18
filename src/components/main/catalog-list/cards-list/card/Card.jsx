@@ -5,8 +5,7 @@ import { connect } from 'react-redux';
 import { Operation, ActionCreators } from '../../../../../reducer';
 import PropTypes from 'prop-types';
 
-const Card = (props) => {
-    const { userData, changePopup } = props;
+const Card = ({ userData, changePopup }) => {
     const onCardClick = () =>{
         //changePopup(userData.id);
         changePopup(userData);

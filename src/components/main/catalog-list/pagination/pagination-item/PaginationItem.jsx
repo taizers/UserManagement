@@ -1,15 +1,13 @@
 import './PaginationItem.css';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { ActionCreators, Operation } from '../../../../../reducer';
+import { Operation } from '../../../../../reducer';
 import PropTypes from 'prop-types';
 
-const PaginationItem = (props) => {
-    const { currentPage, number, onChangePage, turnOverCards } = props;
-    
+const PaginationItem = ({ currentPage, number, onChangePage }) => {
+
     const onPaginationItemClick = () =>{
         onChangePage(number);
-        turnOverCards(number);
     };
 
     return (
@@ -19,9 +17,8 @@ const PaginationItem = (props) => {
 
 PaginationItem.propTypes = {
     onChangePage: PropTypes.func.isRequired,
-    turnOverCards: PropTypes.func.isRequired,
     number : PropTypes.number.isRequired,
-    currentPage: PropTypes.number.isRequired
+    currentPage: PropTypes.number.isRequired,
 };
 
 
@@ -33,8 +30,7 @@ const mapStateToProps = (state,ownProps) => {
 
 const mapDispathToProps = (dispath) => {
     return { 
-        onChangePage: (currentPage) => dispath(ActionCreators['CHANGE_ACTIVE_PAGE'](currentPage)),
-        turnOverCards: (currentPage) => dispath(Operation.changeData(currentPage)),
+        onChangePage: (currentPage) => dispath(Operation.loadData(currentPage)),
     }
 };
 

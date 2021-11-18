@@ -1,9 +1,8 @@
 import './PopupChars.css';
-import PopupChar from './popup-char/PopupChar';
+import PopupChar from './PopupChar/PopupChar';
 import PropTypes from 'prop-types';
 
-const PopupChars = (props) => {
-    const { UserData } = props;
+const PopupChars = ({ UserData }) => {
     return (
         <ul className="popup__chars chars">
             {

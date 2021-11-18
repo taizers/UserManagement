@@ -1,53 +1,46 @@
 import { pathLinks } from "./consts";
 import { useNavigate } from "react-router";
 
+/*   return api.get()
+.then((response) =>{
+    dispatch(ActionCreators.LOAD_DATA(response.data));
+    dispatch(ActionCreators.LOAD_TOTAL_PAGES(response.total_pages));
+}); */
+
 const initialState = {
-    currentActivePupup: {},
-    currentPage: 1,
-    currentCarsData: [],
-    pages: [],
+    currentActivePupup: null,
+    currentPage: null,
+    currentCardsData: null,
+    pages: null,
+    loading: false,
+    error: false,
 };
 
 const actionType = {
     CHANGE_ACTIVE_POPUP: 'CHANGE_ACTIVE_POPUP',
     CHANGE_ACTIVE_PAGE: 'CHANGE_ACTIVE_PAGE',
-    CHANGE_USER_DATA: 'CHANGE_USER_DATA',
-    CHANGE_CARDS_DATA: 'CHANGE_CARDS_DATA',
     LOAD_DATA: 'LOAD_DATA',
     LOAD_TOTAL_PAGES: 'LOAD_TOTAL_PAGES',
+    LOAD_DATA_SUCCEEDED: 'LOAD_DATA_SUCCEEDED',
+    LOAD_DATA_FAILED: 'LOAD_DATA_FAILED',
 };
 
 const Operation = {
-    loadData: (page) => (dispatch, _getState, api) => {
-        /*   return api.get()
-        .then((response) =>{
-            dispatch(ActionCreators.LOAD_DATA(response.data));
-            dispatch(ActionCreators.LOAD_TOTAL_PAGES(response.total_pages));
-        }); */
-        fetch("https://reqres.in/api/users?page=" + page)
-            .then((response) => response.json())
-            .then((data) =>{
-                dispatch(ActionCreators.LOAD_DATA(data.data));
-                dispatch(ActionCreators.LOAD_TOTAL_PAGES(data.total_pages));
-            })
-            .catch(() => {
-                const navigate = useNavigate();
-                navigate(pathLinks.error);
-            });
-        },
-    changeData: (page) => (dispatch, _getState, api) => {
+    loadData: (page) => (dispatch, _getState) => {
 
+        dispatch(ActionCreators.LOAD_DATA());
         fetch("https://reqres.in/api/users?page=" + page)
             .then((response) => response.json())
             .then((data) =>{
-                dispatch(ActionCreators.LOAD_DATA(data.data));
+                dispatch(ActionCreators.LOAD_TOTAL_PAGES(data.total_pages));
+                dispatch(ActionCreators.CHANGE_ACTIVE_PAGE(data.page));
+                dispatch(ActionCreators.LOAD_DATA_SUCCEEDED(data.data));
             })
             .catch(() => {
-                const navigate = useNavigate();
-                navigate(pathLinks.error);
+                dispatch(ActionCreators.LOAD_DATA_FAILED());
             });
     },
-    uptateServerData: (formData, id) => (dispatch, _getState, api) => {
+    uptateServerData: (formData, id) => (dispatch, _getState) => {
 
         fetch("https://reqres.in/api/users/" + id, {
             method: 'POST',
@@ -63,33 +56,36 @@ const Operation = {
 
 const ActionCreators = {
     CHANGE_ACTIVE_POPUP: (currentActivePupupData) =>{
-
         return {
             type: actionType.CHANGE_ACTIVE_POPUP,
             payload: currentActivePupupData
         }
-    },    
-    CHANGE_ACTIVE_PAGE: (currentPage) =>{
+    },       
 
+    CHANGE_ACTIVE_PAGE: (currentPage) =>{
         return {
             type: actionType.CHANGE_ACTIVE_PAGE,
             payload: currentPage
         }
-    },    
-    CHANGE_USER_DATA: (changedPopup) =>{
-
-        return {
-            type: actionType.CHANGE_ACTIVE_POPUP,
-            payload: changedPopup
-        }
-    },
-    LOAD_DATA : (users) =>{
-
+    }, 
+    LOAD_DATA : () =>{
         return {
             type: actionType.LOAD_DATA,
+        }
+    },
+    LOAD_DATA_SUCCEEDED : (users) =>{
+        return {
+            type: actionType.LOAD_DATA_SUCCEEDED,
             payload: users
         }
     },
+    LOAD_DATA_FAILED : () =>{
+        return {
+            type: actionType.LOAD_DATA_FAILED,
+        }
+    },
+
+
     LOAD_TOTAL_PAGES : (totalPages) =>{
 
         const list = Array(totalPages).fill(1).map((e,i)=> i + 1);
@@ -108,28 +104,36 @@ const reducer = (state = initialState, action) =>{
             return Object.assign({}, state, {
                 currentActivePupup: action.payload
             });
+
         case actionType.CHANGE_ACTIVE_PAGE:
-            Operation.loadData();
             return Object.assign({}, state, {
                 currentPage: action.payload
             });
-  /*       case actionType.CHANGE_CARDS_DATA:
-            return Object.assign({}, state, {
-                currentCarsData: action.payload
-            }); */
         case actionType.LOAD_DATA:
             return Object.assign({}, state, {
-                currentCarsData: action.payload
+                currentCardsData: null,
+                loading: true,
+                error: false,
             });
-
+        case actionType.LOAD_DATA_SUCCEEDED:
+            return Object.assign({}, state, {
+                currentCardsData: action.payload,
+                loading: false,
+                error: false,
+            });
+        case actionType.LOAD_DATA_FAILED:
+            return Object.assign({}, state, {
+                currentCardsData: null,
+                loading: false,
+                error: true,
+            });
         case actionType.LOAD_TOTAL_PAGES:
             return Object.assign({}, state, {
                 pages: action.payload
             });
         default:
-            break;
+            return state;
     }
-    return state;
 };
 
 export {reducer, ActionCreators, Operation}; 

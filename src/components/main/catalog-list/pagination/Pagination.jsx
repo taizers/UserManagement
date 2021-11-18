@@ -1,11 +1,8 @@
 import './Pagination.css';
 import PaginationItem from './pagination-item/PaginationItem';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 
-const Pagination = (props) => {
-    const { pages } = props;
-
+const Pagination = ({ pages }) => {
     return (
         <ul className="pagination">
             {
@@ -21,14 +18,7 @@ const Pagination = (props) => {
 };
 
 Pagination.propTypes = {
-    pages: PropTypes.arrayOf(PropTypes.number).isRequired
+    pages: PropTypes.arrayOf(PropTypes.number).isRequired,
 };
-
-const mapStateToProps = (state,ownProps) => {
-    return Object.assign({}, ownProps, {
-        pages : state.pages,
-    });
-};
-
   
-export default connect(mapStateToProps)(Pagination);
+export default Pagination;

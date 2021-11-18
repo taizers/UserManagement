@@ -1,18 +1,22 @@
 import './Popup.css';
-import PopupCloseBtn from './redaction/popup-close-btn/PopupCloseBtn';
+import CloseButton from '../CloseButton/CloseButton';
 import PopupColumns from './popup-columns/PopupColumns';
-import { pathLinks } from '../../consts';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
+import { ActionCreators } from '../../reducer';
 
-const Popup = ({ currentActivePupup }) => {
+const Popup = ({ currentActivePupup, changePopup }) => {
+
+    const onCloseButtonClick = () =>{
+        changePopup(null);
+    };
 
     return (
         <section className="popup">
             <div className="popup__inner">
-                <PopupCloseBtn closePath={pathLinks.home}/>
-                <div className="popup__date">{currentActivePupup.updateAt? currentActivePupup.updateAt: ""}</div>
+                <CloseButton onClick={onCloseButtonClick}/>
+                <div className="popup__date">{currentActivePupup.updateAt ? currentActivePupup.updateAt: ""}</div>
                 <h3 className="popup__title">{currentActivePupup.last_name} {currentActivePupup.first_name}</h3>
                 <PopupColumns UserData = {currentActivePupup}/>
             </div>
@@ -30,4 +34,10 @@ const mapStateToProps = (state,ownProps) => {
     });
 };
 
-export default connect(mapStateToProps)(Popup);
+const mapDispathToProps = (dispath) => {
+    return { 
+        changePopup: (popupData) => dispath(ActionCreators["CHANGE_ACTIVE_POPUP"](popupData))
+    }
+};
+
+export default connect(mapStateToProps,mapDispathToProps)(Popup);

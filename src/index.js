@@ -7,11 +7,9 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import { reducer, Operation } from './reducer';
 import thunk from 'redux-thunk';
-import createApi from './api';
 
 const init = () => {
-  const api = createApi();
-  const store = createStore(reducer,applyMiddleware(thunk.withExtraArgument(api)));
+  const store = createStore(reducer,applyMiddleware(thunk));
 
   store.dispatch(Operation.loadData(1));
 

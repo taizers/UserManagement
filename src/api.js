@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { pathLinks } from './consts';
 
 const TIMEOUT = 5000;
 const BASE_URL = "https://reqres.in/api/users";
