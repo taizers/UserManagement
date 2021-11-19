@@ -2,7 +2,7 @@ import './Card.css';
 import CardImage from './card-image/CardImage';
 import CardContent from './card-content/CardContent';
 import { connect } from 'react-redux';
-import { ActionCreators } from '../../../../../reducer';
+import { ActionCreators } from '../../../../../reducer/setActivPopup/setActivPopup';
 import PropTypes from 'prop-types';
 
 const Card = ({ userData, changePopup }) => {

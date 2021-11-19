@@ -6,6 +6,8 @@ import { connect } from 'react-redux';
 import Loading from '../../Loading/Loading';
 import ErrorPage from '../../ErrorPage/ErrorPage';
 import Popup from '../../popup/Popup';
+import { getUsersData, getPagesCount, getIsLoading, getError } from '../../../reducer/loadData/selectors';
+import { getActivePopup } from '../../../reducer/setActivPopup/selectors';
 import { Route } from 'react-router';
 import { pathLinks } from '../../../consts';
 //<Route path = {pathLinks.error} element={<ErrorPage error = {error} />} /> 
@@ -40,11 +42,11 @@ CatalogList.propTypes = {
 
 const mapStateToProps = (state,ownProps) => {
     return Object.assign({}, ownProps, {
-        cardsData : state.currentCardsData,
-        totalPages : state.pages,
-        loading: state.loading,
-        error: state.error,
-        currentActivePupup: state.currentActivePupup,
+        cardsData : getUsersData(state),
+        totalPages : getPagesCount(state),
+        loading: getIsLoading(state),
+        error: getError(state),
+        currentActivePupup: getActivePopup(state),
     });
 };
   

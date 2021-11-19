@@ -5,10 +5,11 @@ import App from './components/App/App';
 import { BrowserRouter } from 'react-router-dom';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
-import { reducer, ActionCreators } from './reducer';
+import reducer from './reducer/index';
 import createSagaMiddleware from '@redux-saga/core';
-import { watchFetchData, watchPushData } from './reducer';
 import { START_PAGE } from './consts';
+import { ActionCreators,watchFetchData } from './reducer/loadData/loadData';
+import { watchPushData } from './reducer/setActivPopup/setActivPopup';
 
 const init = () => {
   const sagaMiddleware = createSagaMiddleware();

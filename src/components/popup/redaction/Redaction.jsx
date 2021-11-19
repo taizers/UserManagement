@@ -4,12 +4,13 @@ import RedactionInput from './RedactionInput/RedactionInput';
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { ActionCreators } from '../../../reducer';
+import { ActionCreators } from '../../../reducer/setActivPopup/setActivPopup';
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
+import { getActivePopup } from '../../../reducer/setActivPopup/selectors';
 
 
-const Redaction = ({ currentActivePupup, updateServerData, page }) => {
+const Redaction = ({ currentActivePupup, updateServerData}) => {
     let [lastName, setLastName] = useState(currentActivePupup.last_name);
     let [firstName, setFirstName] = useState(currentActivePupup.first_name);
     const navigate = useNavigate();
@@ -32,7 +33,7 @@ const Redaction = ({ currentActivePupup, updateServerData, page }) => {
             currentActivePupup.first_name = formData.first_name;
             currentActivePupup.last_name = formData.last_name;
     
-            updateServerData(formData, page, currentActivePupup);
+            updateServerData(formData, currentActivePupup);
         }
     }; 
 
@@ -57,19 +58,17 @@ const Redaction = ({ currentActivePupup, updateServerData, page }) => {
 Redaction.propTypes = {
     currentActivePupup: PropTypes.object.isRequired,
     updateServerData: PropTypes.func.isRequired,
-    //page: PropTypes.number.isRequired,
 };
 
 const mapStateToProps = (state, ownProps) => {
     return Object.assign({}, ownProps, {
-        currentActivePupup : state.currentActivePupup,
-        page: state.currentPage,
+        currentActivePupup : getActivePopup(state),
     });
 };
-//ActionCreators['FETCHED_DATA'](currentPage)
+
 const mapDispathToProps = (dispath) => {
     return { 
-        updateServerData: (formData, page, popup) => dispath(ActionCreators['PUSHED_DATA'](formData, page, popup)),
+        updateServerData: (formData, popup) => dispath(ActionCreators['PUSHED_DATA'](formData, popup)),
     }
 };
 

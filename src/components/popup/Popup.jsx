@@ -4,7 +4,8 @@ import PopupColumns from './popup-columns/PopupColumns';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
-import { ActionCreators } from '../../reducer';
+import { ActionCreators } from '../../reducer/setActivPopup/setActivPopup';
+import { getActivePopup } from '../../reducer/setActivPopup/selectors';
 
 const Popup = ({ currentActivePupup, changePopup }) => {
 
@@ -29,7 +30,7 @@ Popup.propTypes = {
 
 const mapStateToProps = (state,ownProps) => {
     return Object.assign({}, ownProps, {
-        currentActivePupup : state.currentActivePupup 
+        currentActivePupup : getActivePopup(state),
     });
 };
 

@@ -1,8 +1,9 @@
 import './PaginationItem.css';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { ActionCreators } from '../../../../../reducer';
+import { ActionCreators } from '../../../../../reducer/loadData/loadData';
 import PropTypes from 'prop-types';
+import { getCurrentPage } from '../../../../../reducer/loadData/selectors';
 
 const PaginationItem = ({ currentPage, number, onChangePage }) => {
 
@@ -23,7 +24,7 @@ PaginationItem.propTypes = {
 
 const mapStateToProps = (state,ownProps) => {
     return Object.assign({}, ownProps, {
-        currentPage : state.currentPage 
+        currentPage : getCurrentPage(state),
     });
 };
 
