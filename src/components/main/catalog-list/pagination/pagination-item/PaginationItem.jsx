@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 import { getCurrentPage } from '../../../../../reducer/loadData/selectors';
 
 const PaginationItem = ({ currentPage, number, onChangePage }) => {
-
     const onPaginationItemClick = () =>{
         onChangePage(number);
     };

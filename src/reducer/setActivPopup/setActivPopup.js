@@ -6,7 +6,6 @@ const initialState = {
     currentActivePupup: null,
 };
 
-
 function* watchPushData() {
     yield takeEvery('PUSHED_DATA',pushDataAsync);
 };

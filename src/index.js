@@ -8,7 +8,7 @@ import { Provider } from 'react-redux';
 import reducer from './reducer/index';
 import createSagaMiddleware from '@redux-saga/core';
 import { START_PAGE } from './consts';
-import { ActionCreators,watchFetchData } from './reducer/loadData/loadData';
+import { ActionCreators, watchFetchData } from './reducer/loadData/loadData';
 import { watchPushData } from './reducer/setActivPopup/setActivPopup';
 
 const init = () => {
@@ -23,8 +23,7 @@ const init = () => {
       <BrowserRouter>
         <App />
       </BrowserRouter>
-    </Provider>
-    ,
+    </Provider>,
     document.querySelector('#root'));
 };
 

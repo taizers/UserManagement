@@ -8,9 +8,7 @@ import ErrorPage from '../../ErrorPage/ErrorPage';
 import Popup from '../../popup/Popup';
 import { getUsersData, getPagesCount, getIsLoading, getError } from '../../../reducer/loadData/selectors';
 import { getActivePopup } from '../../../reducer/setActivPopup/selectors';
-import { Route } from 'react-router';
-import { pathLinks } from '../../../consts';
-//<Route path = {pathLinks.error} element={<ErrorPage error = {error} />} /> 
+
 const CatalogList = ({ cardsData, totalPages, loading, error, currentActivePupup }) => {
     if (loading || error || currentActivePupup) {
         if (loading) {
@@ -20,7 +18,13 @@ const CatalogList = ({ cardsData, totalPages, loading, error, currentActivePupup
             return  <ErrorPage error = {error} /> 
         }
         if (currentActivePupup) {
-            return <Popup />
+            return <> 
+                <div className="social-network-app__results results">
+                    <CardsList cardsData = {cardsData}/>
+                    <Pagination pages = {totalPages}/>
+                </div>
+                <Popup />
+            </> 
         }
     } else {
         return (

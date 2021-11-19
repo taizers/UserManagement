@@ -59,7 +59,6 @@ const PopupColumns = ({ UserData }) => {
     );
 };
 
-
 PopupColumns.propTypes = {
     UserData: PropTypes.object.isRequired,
 };

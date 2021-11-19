@@ -7,7 +7,6 @@ import PropTypes from 'prop-types';
 
 const Card = ({ userData, changePopup }) => {
     const onCardClick = () =>{
-        //changePopup(userData.id);
         changePopup(userData);
     }; 
     return (
@@ -25,7 +24,6 @@ Card.propTypes = {
 
 const mapDispathToProps = (dispath) => {
     return { 
-        //changePopup: (id) => dispath(Operation.changePopup(id))
         changePopup: (userData) => dispath(ActionCreators["CHANGE_ACTIVE_POPUP"](userData))
     }
 };

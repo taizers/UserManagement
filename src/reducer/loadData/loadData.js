@@ -44,7 +44,6 @@ function* fetchDataAsync(action) {
     }
 };
 
-
 const ActionCreators = {
     FETCHED_DATA: (currentPage) =>{
         return {
@@ -76,7 +75,6 @@ const ActionCreators = {
             payload: pagesList,
         }
     }
-
 };
 
 const reducer = (state = initialState, action) =>{
