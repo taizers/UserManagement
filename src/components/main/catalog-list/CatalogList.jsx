@@ -4,16 +4,18 @@ import Pagination from './pagination/Pagination';
 import PropTypes from 'prop-types'; 
 import { connect } from 'react-redux';
 import Loading from '../../Loading/Loading';
-import ErrorPage from '../../error-page/ErrorPage';
+import ErrorPage from '../../ErrorPage/ErrorPage';
 import Popup from '../../popup/Popup';
-
+import { Route } from 'react-router';
+import { pathLinks } from '../../../consts';
+//<Route path = {pathLinks.error} element={<ErrorPage error = {error} />} /> 
 const CatalogList = ({ cardsData, totalPages, loading, error, currentActivePupup }) => {
     if (loading || error || currentActivePupup) {
         if (loading) {
             return <Loading />
         }
         if (error) {
-            return <ErrorPage />
+            return  <ErrorPage error = {error} /> 
         }
         if (currentActivePupup) {
             return <Popup />
@@ -33,7 +35,6 @@ CatalogList.propTypes = {
     cardsData: PropTypes.arrayOf(PropTypes.object),
     totalPages: PropTypes.arrayOf(PropTypes.number),
     loading: PropTypes.bool.isRequired,
-    error: PropTypes.bool.isRequired,
     currentActivePupup: PropTypes.object,
 };
 

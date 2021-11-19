@@ -1,6 +1,6 @@
 import './App.css';
 import Main from '../main/Main';
-import ErrorPage from '../error-page/ErrorPage';
+import ErrorPage from '../ErrorPage/ErrorPage';
 import {
   Routes,
   Route,

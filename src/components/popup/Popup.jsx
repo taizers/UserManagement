@@ -16,7 +16,6 @@ const Popup = ({ currentActivePupup, changePopup }) => {
         <section className="popup">
             <div className="popup__inner">
                 <CloseButton onClick={onCloseButtonClick}/>
-                <div className="popup__date">{currentActivePupup.updateAt ? currentActivePupup.updateAt: ""}</div>
                 <h3 className="popup__title">{currentActivePupup.last_name} {currentActivePupup.first_name}</h3>
                 <PopupColumns UserData = {currentActivePupup}/>
             </div>
