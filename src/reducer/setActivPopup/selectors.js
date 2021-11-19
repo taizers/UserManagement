@@ -1,3 +1,3 @@
-export const getActivePopup = (state) =>{
+export const getActivePopup = (state) => {
     return state.setActivPopup.currentActivePupup;
 };

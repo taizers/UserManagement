@@ -1,5 +1,5 @@
 import './Pagination.css';
-import PaginationItem from './pagination-item/PaginationItem';
+import PaginationItem from './PaginationItem/PaginationItem';
 import PropTypes from 'prop-types';
 
 const Pagination = ({ pages }) => {
@@ -7,12 +7,12 @@ const Pagination = ({ pages }) => {
         <ul className="pagination">
             {
                 pages.map(item => (
-                    <PaginationItem 
-                        key = {"pagination-item-"+item} 
-                        number = {item} 
+                    <PaginationItem
+                        key={"pagination-item-" + item}
+                        number={item}
                     />
                 ))
-            }   
+            }
         </ul>
     );
 };
@@ -20,5 +20,5 @@ const Pagination = ({ pages }) => {
 Pagination.propTypes = {
     pages: PropTypes.arrayOf(PropTypes.number).isRequired,
 };
-  
+
 export default Pagination;

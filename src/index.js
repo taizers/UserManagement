@@ -8,15 +8,16 @@ import { Provider } from 'react-redux';
 import reducer from './reducer/index';
 import createSagaMiddleware from '@redux-saga/core';
 import { START_PAGE } from './consts';
-import { ActionCreators, watchFetchData } from './reducer/loadData/loadData';
-import { watchPushData } from './reducer/setActivPopup/setActivPopup';
+import actionCreators from './reducer/actionCreators';
+import watchFetchData from './reducer/loadData/saga';
+import watchPushData from './reducer/setActivPopup/saga';
 
 const init = () => {
   const sagaMiddleware = createSagaMiddleware();
-  const store = createStore(reducer,applyMiddleware(sagaMiddleware));
+  const store = createStore(reducer, applyMiddleware(sagaMiddleware));
   sagaMiddleware.run(watchFetchData);
   sagaMiddleware.run(watchPushData);
-  store.dispatch(ActionCreators.FETCHED_DATA(START_PAGE));
+  store.dispatch(actionCreators.FETCHED_DATA(START_PAGE));
 
   ReactDOM.render(
     <Provider store={store}>
@@ -33,4 +34,4 @@ init();
 
 
 
- 
+

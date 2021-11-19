@@ -6,7 +6,7 @@ const CardContent = ({ userData, onCardClick }) => {
     return (
         <div className="card__content">
             <h3 className="card__title">
-                <Link to="" onClick ={onCardClick}>
+                <Link to="" onClick={onCardClick}>
                     {userData.last_name} {userData.first_name}
                 </Link>
             </h3>
@@ -17,7 +17,7 @@ const CardContent = ({ userData, onCardClick }) => {
 
 CardContent.propTypes = {
     onCardClick: PropTypes.func.isRequired,
-    userData : PropTypes.object.isRequired,
+    userData: PropTypes.object.isRequired,
 };
 
 export default CardContent;

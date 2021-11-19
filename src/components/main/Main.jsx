@@ -1,14 +1,14 @@
 import './Main.css';
-import CatalogList from './catalog-list/CatalogList';
+import CatalogContainer from './CatalogContainer/CatalogContainer';
 import React from 'react';
 import Header from '../Header/Header';
 
 const Main = () => {
-    return ( 
+    return (
         <React.Fragment>
             <Header />
             <div className="social-network__wrapper">
-                <CatalogList />
+                <CatalogContainer />
             </div>
         </React.Fragment>
     );

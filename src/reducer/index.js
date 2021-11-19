@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
-import {reducer as loadData} from './loadData/loadData';
-import {reducer as setActivPopup} from './setActivPopup/setActivPopup';
+import { reducer as loadData } from './loadData/loadData';
+import { reducer as setActivPopup } from './setActivPopup/setActivPopup';
 
-const reducer =  combineReducers({
+const reducer = combineReducers({
     loadData,
     setActivPopup,
 });
