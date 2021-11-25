@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import Loading from '../../Loading/Loading';
 import ErrorPage from '../../ErrorPage/ErrorPage';
 import Popup from '../../Popup/Popup';
-import { getUsersData, getPagesCount, getIsLoading, getError } from '../../../reducer/loadData/selectors';
-import { getActivePopup } from '../../../reducer/setActivPopup/selectors';
+import { getUsersData, getPagesCount, getIsLoading, getError } from '../../../selectors/setActivPopup';
+import { getActivePopup } from '../../../selectors/loadData';
 import Catalog from './Catalog/Catalog';
 import React from 'react';
 

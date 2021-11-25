@@ -7,7 +7,7 @@ import actionCreators from '../../../../../../reducer/actionCreators';
 
 const Card = ({ userData, changePopup }) => {
     const onCardClick = () => {
-        changePopup(userData);
+        changePopup(userData.id);
     };
     return (
         <li className="results__item product">
@@ -24,7 +24,7 @@ Card.propTypes = {
 
 const mapDispathToProps = (dispath) => {
     return {
-        changePopup: (userData) => dispath(actionCreators["CHANGE_ACTIVE_POPUP"](userData))
+        changePopup: (id) => dispath(actionCreators["FETCHED_POPUP_DATA"](id))
     }
 };
 

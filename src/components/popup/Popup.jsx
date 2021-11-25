@@ -4,7 +4,7 @@ import PopupColumns from './PopupColumns/PopupColumns';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
-import { getActivePopup } from '../../reducer/setActivPopup/selectors';
+import { getActivePopup } from '../../selectors/loadData';
 import actionCreators from '../../reducer/actionCreators';
 
 const Popup = ({ currentActivePupup, changePopup }) => {

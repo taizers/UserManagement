@@ -7,12 +7,13 @@ const actionCreators = {
             payload: currentActivePupupData
         }
     },
-    PUSHED_DATA: (data, popup) => {
+    PUSHED_DATA: (data, id, page) => {
         return {
             type: actionType.PUSHED_DATA,
             payload: {
                 data: data,
-                popup: popup,
+                id: id,
+                page: page,
             },
         }
     },
@@ -44,6 +45,12 @@ const actionCreators = {
         return {
             type: actionType.LOAD_TOTAL_PAGES,
             payload: pagesList,
+        }
+    },
+    FETCHED_POPUP_DATA: (id) => {
+        return {
+            type: actionType.FETCHED_POPUP_DATA,
+            payload: id,
         }
     }
 };

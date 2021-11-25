@@ -4,10 +4,11 @@ const initialState = {
     currentActivePupup: null,
 };
 
-const reducer = (state = initialState, action) => {
+const reducer = (state = initialState, action) =>{
     switch (action.type) {
         case actionType.CHANGE_ACTIVE_POPUP:
-            return Object.assign({}, state, {
+            return ({
+                ...state,
                 currentActivePupup: action.payload,
             });
         default:
@@ -15,4 +16,4 @@ const reducer = (state = initialState, action) => {
     }
 };
 
-export { reducer };
+export { reducer }; 

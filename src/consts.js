@@ -5,6 +5,7 @@ export const pathLinks = {
 };
 
 export const START_PAGE = 1;
+export const USERS_ON_PAGE = 6;
 
 export const actionType = {
     CHANGE_ACTIVE_POPUP: 'CHANGE_ACTIVE_POPUP',
@@ -17,4 +18,5 @@ export const actionType = {
     FETCHED_DATA: 'FETCHED_DATA',
     PUSHED_DATA: 'PUSHED_DATA',
     CHANGE_POPUP_DATE: 'CHANGE_POPUP_DATE',
+    FETCHED_POPUP_DATA: 'FETCHED_POPUP_DATA',
 };

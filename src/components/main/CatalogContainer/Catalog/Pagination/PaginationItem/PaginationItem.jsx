@@ -2,7 +2,7 @@ import './PaginationItem.css';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import actionCreators from '../../../../../../reducer/actionCreators';
-import { getCurrentPage } from '../../../../../../reducer/loadData/selectors';
+import { getCurrentPage } from '../../../../../../selectors/setActivPopup';
 import PropTypes from 'prop-types';
 
 const PaginationItem = ({ currentPage, number, onChangePage }) => {

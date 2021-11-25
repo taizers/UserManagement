@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 import dateFormat, { masks } from "dateformat";
 
-const PopupColumns = ({ userData }) => {
+const getDateUpdateDate = (userData) => {
     const charsArray = [
         {
             id: "LastName" + userData.last_name,
@@ -25,23 +25,23 @@ const PopupColumns = ({ userData }) => {
         },
     ];
 
+    if (userData.updatedAt) {
+        const resultDate = dateFormat(userData.updatedAt, masks.paddedShortDate);
+        charsArray.push({
+            id: "lastUpdateDate" + userData.updatedAt,
+            name: "Дата поcледнего обновления",
+            value: resultDate
+        });
+    }
+    return charsArray;
+};
+
+const PopupColumns = ({ userData }) => {
     const navigate = useNavigate();
     const pathToRedaction = generatePath(pathLinks.redaction, { id: userData.id });
 
     const onClickRedactionBtn = () => {
         navigate(pathToRedaction);
-    };
-
-    const getDateUpdateDate = () => {
-        if (userData.updatedAt) {
-            const date = dateFormat(userData.updatedAt, masks.paddedShortDate);
-            charsArray.push({
-                id: "lastUpdateDate" + userData.updatedAt,
-                name: "Дата поcледнего обновления",
-                value: date
-            });
-        }
-        return charsArray;
     };
 
     return (
@@ -51,7 +51,7 @@ const PopupColumns = ({ userData }) => {
             </div>
             <div className="popup__right">
                 <PopupChars
-                    userData={getDateUpdateDate()}
+                    userData={getDateUpdateDate(userData)}
                 />
                 <button className="button popup__button" type="button" onClick={onClickRedactionBtn}>Редактировать</button>
             </div>
