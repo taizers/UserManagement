@@ -10,13 +10,17 @@ import { pathLinks } from '../../../consts';
 const Redaction = ({ currentActivePupup, updateServerData, currentPage }) => {
     let [lastName, setLastName] = useState(currentActivePupup.last_name);
     let [firstName, setFirstName] = useState(currentActivePupup.first_name);
+    let [isDisabled, setDisabledButton] = useState(true);
+
     const navigate = useNavigate();
 
     const onChangeInputFamily = (e) => {
         setLastName(lastName = e.target.value);
+        changeActivitySaveButton();
     };
     const onChangeInputName = (e) => {
         setFirstName(firstName = e.target.value);
+        changeActivitySaveButton();
     };
 
     const onSubmitForm = (evt) => {
@@ -29,11 +33,20 @@ const Redaction = ({ currentActivePupup, updateServerData, currentPage }) => {
             };
 
             updateServerData(formData, currentActivePupup.id, currentPage);
+            setDisabledButton(isDisabled = true);
             //navigate(pathLinks.home);
         }
-        
     };
 
+    const changeActivitySaveButton = () => {
+        if (firstName !== currentActivePupup.first_name || lastName !== currentActivePupup.last_name) {
+            setDisabledButton(isDisabled = false);
+        }else
+        {
+            setDisabledButton(isDisabled = true);
+        }
+    };
+    
     const onCloseButtonClick = () => {
         navigate(pathLinks.home);
     };
@@ -45,7 +58,7 @@ const Redaction = ({ currentActivePupup, updateServerData, currentPage }) => {
                 <form className="redaction__form" action="/" onSubmit={onSubmitForm}>
                     <RedactionInput name="Фамилия" value={lastName} onChangeValue={onChangeInputFamily} />
                     <RedactionInput name="Имя" value={firstName} onChangeValue={onChangeInputName} />
-                    <button className="button popup__button" type="submit">Сохранить</button>
+                    <button disabled={isDisabled} className="button popup__button" type="submit">Сохранить</button>
                 </form>
             </div>
         </div>
