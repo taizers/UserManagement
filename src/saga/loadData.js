@@ -13,7 +13,7 @@ function* loadUsersDataAsync({ payload }) {
         yield put(actionCreators.LOAD_TOTAL_PAGES(Array.from({ length: data.totalPages }, (_,i) => ( i + 1 ))));
         yield put(actionCreators.LOAD_DATA_SUCCEEDED(data.data));
     } catch (error) {
-        yield put(actionCreators.LOAD_DATA_FAILED(error));
+        yield put(actionCreators.LOAD_DATA_FAILED(error.message));
     }
 };
 

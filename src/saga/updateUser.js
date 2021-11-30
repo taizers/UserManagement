@@ -12,6 +12,7 @@ function* pushDataAsync({ payload }) {
         yield put(actionCreators.CHANGE_ACTIVE_POPUP(popup));
         yield put(actionCreators.FETCHED_DATA(payload.page));
     } catch (error) {
+        yield put(actionCreators.LOAD_DATA_FAILED(error.message));
     }
 };
 

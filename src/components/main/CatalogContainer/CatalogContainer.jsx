@@ -24,7 +24,7 @@ const CatalogContainer = ({ cardsData, totalPages, loading, error, currentActive
             <Popup />
         </React.Fragment>
     }
-
+    
     return <Catalog cardsData={cardsData} totalPages={totalPages} />
 };
 

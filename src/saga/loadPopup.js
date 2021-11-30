@@ -11,7 +11,7 @@ function* loadPopupDataAsync({ payload }) {
         const data = yield call(getUserData, payload);
         yield put(actionCreators.CHANGE_ACTIVE_POPUP(data));
     } catch (error) {
-        yield put(actionCreators.LOAD_DATA_FAILED(error));
+        yield put(actionCreators.LOAD_DATA_FAILED(error.message));
     }
 };
 
