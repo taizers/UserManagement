@@ -7,10 +7,10 @@ const initialState = {
 const reducer = (state = initialState, action) =>{
     switch (action.type) {
         case actionType.CHANGE_ACTIVE_POPUP:
-            return ({
+            return {
                 ...state,
                 currentActivePupup: action.payload,
-            });
+            };
         default:
             return state;
     }

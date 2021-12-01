@@ -4,9 +4,10 @@ import { generatePath } from 'react-router';
 import { pathLinks } from '../../../consts';
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
-import dateFormat, { masks } from "dateformat";
+import dateFormat from "dateformat";
+import { DATE_MASK } from '../../../consts';
 
-const getDateUpdateDate = (userData) => {
+const getCharsData = (userData) => {
     const charsArray = [
         {
             id: "LastName" + userData.last_name,
@@ -26,11 +27,12 @@ const getDateUpdateDate = (userData) => {
     ];
 
     if (userData.updatedAt) {
-        const resultDate = dateFormat(userData.updatedAt, masks.paddedShortDate);
+        const lastUpdateDate = dateFormat(userData.updatedAt, DATE_MASK);
+
         charsArray.push({
             id: "lastUpdateDate" + userData.updatedAt,
             name: "Дата поcледнего обновления",
-            value: resultDate
+            value: lastUpdateDate
         });
     }
     return charsArray;
@@ -51,7 +53,7 @@ const PopupColumns = ({ userData }) => {
             </div>
             <div className="popup__right">
                 <PopupChars
-                    userData={getDateUpdateDate(userData)}
+                    userData={getCharsData(userData)}
                 />
                 <button className="button popup__button" type="button" onClick={onClickRedactionBtn}>Редактировать</button>
             </div>

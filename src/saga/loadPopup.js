@@ -8,8 +8,8 @@ function* watchLoadPopupData() {
 
 function* loadPopupDataAsync({ payload }) {
     try {
-        const data = yield call(getUserData, payload);
-        yield put(actionCreators.CHANGE_ACTIVE_POPUP(data));
+        const popupData = yield call(getUserData, payload);
+        yield put(actionCreators.CHANGE_ACTIVE_POPUP(popupData));
     } catch (error) {
         yield put(actionCreators.LOAD_DATA_FAILED(error.message));
     }

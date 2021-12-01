@@ -6,6 +6,7 @@ export const pathLinks = {
 
 export const START_PAGE = 1;
 export const USERS_ON_PAGE = 6;
+export const DATE_MASK = 'dd/mm/yyyy';
 
 export const actionType = {
     CHANGE_ACTIVE_POPUP: 'CHANGE_ACTIVE_POPUP',

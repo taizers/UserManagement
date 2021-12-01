@@ -9,9 +9,9 @@ function* watchFetchData() {
 function* loadUsersDataAsync({ payload }) {
     try {
         yield put(actionCreators.LOAD_DATA());
-        const data = yield call(getUsersData, payload);
-        yield put(actionCreators.LOAD_TOTAL_PAGES(Array.from({ length: data.totalPages }, (_,i) => ( i + 1 ))));
-        yield put(actionCreators.LOAD_DATA_SUCCEEDED(data.data));
+        const usersData = yield call(getUsersData, payload);
+        yield put(actionCreators.LOAD_TOTAL_PAGES(Array.from({ length: usersData.totalPages }, (_,i) => ( i + 1 ))));
+        yield put(actionCreators.LOAD_DATA_SUCCEEDED(usersData.data));
     } catch (error) {
         yield put(actionCreators.LOAD_DATA_FAILED(error.message));
     }

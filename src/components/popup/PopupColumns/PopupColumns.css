@@ -52,36 +52,14 @@
 }
 
 .popup__left {
-    width: 520px;
+    width: 500px;
+}
+
+.popup__left img{
+    height: 400px;
 }
 
 .popup__right {
     width: 308px;
     padding-left: 40px;
-}
-
-.popup__description h3 {
-    margin: 0 0 8px;
-    font-size: 14px;
-    line-height: 1.57;
-    font-weight: 600;
-    letter-spacing: 0.02em;
-    color: var(--disabled-blue);
-}
-
-.popup__description p {
-    margin: 0;
-    font-size: 16px;
-    line-height: 1.75;
-    font-weight: 500;
-    color: var(--titles-color);
-}
-
-.popup__email {
-    position: relative;
-    padding-left: 26px;
-    font-size: 20px;
-    line-height: 1.48;
-    font-weight: 500;
-    color: var(--disabled-blue);
 }

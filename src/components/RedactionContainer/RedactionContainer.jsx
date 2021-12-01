@@ -4,15 +4,18 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import actionCreators from '../../reducer/actionCreators';
 import ErrorPage from '../ErrorPage/ErrorPage';
-import { getActivePopup } from '../../selectors/loadData';
-import { getCurrentPage } from '../../selectors/setActivPopup';
+import { getActivePopup } from '../../selectors/setActivPopup';
+import { getCurrentPage } from '../../selectors/loadData';
+import { useParams } from 'react-router';
 
 const RedactionContainer = ({ currentActivePupup, updateServerData, currentPage }) => {
-    if (currentActivePupup) {
+    const pathParams = useParams();
+
+    if (currentActivePupup && +currentActivePupup.id === +pathParams.id) {
         return <Redaction currentActivePupup={currentActivePupup} updateServerData={updateServerData} currentPage={currentPage} />
-    } else {
-        return <ErrorPage error="Page not found" />
     }
+
+    return <ErrorPage error="Page not found" />
 };
 
 RedactionContainer.propTypes = {
@@ -22,10 +25,11 @@ RedactionContainer.propTypes = {
 };
 
 const mapStateToProps = (state, ownProps) => {
-    return Object.assign({}, ownProps, {
+    return {
+        ...ownProps,
         currentActivePupup: getActivePopup(state),
         currentPage: getCurrentPage(state),
-    });
+    };
 };
 
 const mapDispathToProps = (dispath) => {

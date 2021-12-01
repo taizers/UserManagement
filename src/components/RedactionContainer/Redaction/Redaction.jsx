@@ -34,7 +34,6 @@ const Redaction = ({ currentActivePupup, updateServerData, currentPage }) => {
 
             updateServerData(formData, currentActivePupup.id, currentPage);
             setDisabledButton(isDisabled = true);
-            //navigate(pathLinks.home);
         }
     };
 

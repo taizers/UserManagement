@@ -8,8 +8,8 @@ function* watchPushData() {
 
 function* pushDataAsync({ payload }) {
     try {
-        const popup = yield call(updateUser, payload);
-        yield put(actionCreators.CHANGE_ACTIVE_POPUP(popup));
+        const popupData = yield call(updateUser, payload);
+        yield put(actionCreators.CHANGE_ACTIVE_POPUP(popupData));
         yield put(actionCreators.FETCHED_DATA(payload.page));
     } catch (error) {
         yield put(actionCreators.LOAD_DATA_FAILED(error.message));
