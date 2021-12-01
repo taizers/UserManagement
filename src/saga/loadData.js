@@ -1,19 +1,17 @@
-import actionCreators from "../reducer/actionCreators";
+import { loadDataSuccessed, loadDataFailed } from "../reducer/actionCreators";
 import { call, put, takeEvery } from "redux-saga/effects";
 import { getUsersData } from '../api/loadData';
 
 function* watchFetchData() {
-    yield takeEvery('FETCHED_DATA', loadUsersDataAsync);
+    yield takeEvery('LOAD_DATA', loadUsersDataAsync);
 };
 
 function* loadUsersDataAsync({ payload }) {
     try {
-        yield put(actionCreators.LOAD_DATA());
         const usersData = yield call(getUsersData, payload);
-        yield put(actionCreators.LOAD_TOTAL_PAGES(Array.from({ length: usersData.totalPages }, (_,i) => ( i + 1 ))));
-        yield put(actionCreators.LOAD_DATA_SUCCEEDED(usersData.data));
+        yield put(loadDataSuccessed(usersData.data, Array.from({ length: usersData.totalPages }, (_,i) => ( i + 1 ))));
     } catch (error) {
-        yield put(actionCreators.LOAD_DATA_FAILED(error.message));
+        yield put(loadDataFailed(error.message));
     }
 };
 

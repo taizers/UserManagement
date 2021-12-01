@@ -1,4 +1,4 @@
-import actionCreators from "../reducer/actionCreators";
+import { requestForData, changeActivePopup, loadDataFailed } from "../reducer/actionCreators";
 import { call, put, takeEvery } from "redux-saga/effects";
 import { updateUser } from '../api/updateUser'
 
@@ -8,11 +8,9 @@ function* watchPushData() {
 
 function* pushDataAsync({ payload }) {
     try {
-        const popupData = yield call(updateUser, payload);
-        yield put(actionCreators.CHANGE_ACTIVE_POPUP(popupData));
-        yield put(actionCreators.FETCHED_DATA(payload.page));
+        yield call(updateUser, payload);
     } catch (error) {
-        yield put(actionCreators.LOAD_DATA_FAILED(error.message));
+        yield put(loadDataFailed(error.message));
     }
 };
 

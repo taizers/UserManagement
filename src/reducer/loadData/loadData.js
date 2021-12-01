@@ -1,7 +1,7 @@
 import { actionType } from "../../consts";
 
 const initialState = {
-    currentPage: null,
+    currentPage: 1,
     currentCardsData: null,
     pages: null,
     loading: false,
@@ -10,36 +10,24 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
-        case actionType.FETCHED_DATA:
-            return {
-                ...state,
-                currentPage: action.payload,
-            };
         case actionType.LOAD_DATA:
             return {
                 ...state,
-                currentCardsData: null,
+                currentPage: action.payload,
                 loading: true,
-                error: false,
             };
         case actionType.LOAD_DATA_SUCCEEDED:
             return {
                 ...state,
-                currentCardsData: action.payload,
+                currentCardsData: action.payload.users,
                 loading: false,
-                error: false,
+                pages: action.payload.pages,
             };
         case actionType.LOAD_DATA_FAILED:
             return {
                 ...state,
-                currentCardsData: null,
                 loading: false,
                 error: action.payload,
-            };
-        case actionType.LOAD_TOTAL_PAGES:
-            return {
-                ...state,
-                pages: action.payload,
             };
         default:
             return state;

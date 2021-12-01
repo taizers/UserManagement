@@ -4,10 +4,9 @@ import PopupColumns from './PopupColumns/PopupColumns';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
-import { getActivePopup } from '../../selectors/setActivPopup';
-import actionCreators from '../../reducer/actionCreators';
+import { changeActivePopup } from '../../reducer/actionCreators';
 
-const Popup = ({ currentActivePupup, changePopup }) => {
+const Popup = ({ popup, changePopup }) => {
     const onCloseButtonClick = () => {
         changePopup(null);
     };
@@ -16,28 +15,21 @@ const Popup = ({ currentActivePupup, changePopup }) => {
         <section className="popup">
             <div className="popup__inner">
                 <CloseButton onClick={onCloseButtonClick} />
-                <h3 className="popup__title">{currentActivePupup.last_name} {currentActivePupup.first_name}</h3>
-                <PopupColumns userData={currentActivePupup} />
+                <h3 className="popup__title">{popup.last_name} {popup.first_name}</h3>
+                <PopupColumns userData={popup} />
             </div>
         </section>
     );
 };
 
 Popup.propTypes = {
-    currentActivePupup: PropTypes.object.isRequired,
-};
-
-const mapStateToProps = (state, ownProps) => {
-    return {
-        ...ownProps,
-        currentActivePupup: getActivePopup(state),
-    };
+    popup: PropTypes.object.isRequired,
 };
 
 const mapDispathToProps = (dispath) => {
     return {
-        changePopup: (popupData) => dispath(actionCreators["CHANGE_ACTIVE_POPUP"](popupData))
+        changePopup: (popupData) => dispath(changeActivePopup(popupData))
     }
 };
 
-export default connect(mapStateToProps, mapDispathToProps)(Popup);
+export default connect(null, mapDispathToProps)(Popup);

@@ -7,7 +7,7 @@ import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { pathLinks } from '../../../consts';
 
-const Redaction = ({ currentActivePupup, updateServerData, currentPage }) => {
+const Redaction = ({ currentActivePupup, updateServerData, currentPage, changePopup }) => {
     let [lastName, setLastName] = useState(currentActivePupup.last_name);
     let [firstName, setFirstName] = useState(currentActivePupup.first_name);
     let [isDisabled, setDisabledButton] = useState(true);
@@ -47,6 +47,7 @@ const Redaction = ({ currentActivePupup, updateServerData, currentPage }) => {
     };
     
     const onCloseButtonClick = () => {
+        changePopup(null);
         navigate(pathLinks.home);
     };
 
@@ -67,6 +68,7 @@ const Redaction = ({ currentActivePupup, updateServerData, currentPage }) => {
 Redaction.propTypes = {
     currentActivePupup: PropTypes.object.isRequired,
     updateServerData: PropTypes.func.isRequired,
+    changePopup: PropTypes.func.isRequired,
 };
 
 export default Redaction;

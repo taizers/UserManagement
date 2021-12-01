@@ -1,7 +1,7 @@
 import './PaginationItem.css';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import actionCreators from '../../../../../../reducer/actionCreators';
+import { requestForData } from '../../../../../../reducer/actionCreators';
 import { getCurrentPage } from '../../../../../../selectors/loadData';
 import PropTypes from 'prop-types';
 
@@ -30,7 +30,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispathToProps = (dispath) => {
     return {
-        onChangePage: (currentPage) => dispath(actionCreators['FETCHED_DATA'](currentPage)),
+        onChangePage: (currentPage) => dispath(requestForData(currentPage)),
     }
 };
 

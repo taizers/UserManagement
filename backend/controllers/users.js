@@ -6,7 +6,7 @@ exports.getAllUsers = (req,res) => {
         limit: +req.query.limit,
     }
 
-    User.count({},(err,count) => {
+    User.count({},(_,count) => {
         const totalPages = Math.ceil(count/pageOptions.limit);
 
         User.find()
