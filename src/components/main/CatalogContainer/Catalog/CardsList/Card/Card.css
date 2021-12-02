@@ -1,8 +1,20 @@
 .user {
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     position: relative;
     display: flex;
-    border-radius: 4px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    background-color: #ffffff;
+    background: #fff;
+    box-shadow: 0px 5px #B5B8B1, 0px 10px 10px rgba(0,0,0,0.25);
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    transition: 300ms;
+}
+
+.user:hover {
+    transform: translateY(5px);
+    box-shadow: 0px 0px transparent, 0px 5px 10px rgba(0,0,0,0.25);
+}
+  
+.user:focus {
+    outline: none;
 }

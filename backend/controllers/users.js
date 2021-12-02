@@ -41,7 +41,7 @@ exports.updateUserData = (req,res) => {
             returnDocument: "after"
         },
         function (err, result) {
-            if(err) { res.status(500).json(error); return; };
+            if(err) { res.status(500).json(err); return; };
             res.status(200).json(result);
         }
     )

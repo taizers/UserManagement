@@ -12,9 +12,14 @@ import { changeActivePopup, requestForData } from '../../../reducer/actionCreato
 import { useEffect } from 'react';
 
 const CatalogContainer = ({ cardsData, totalPages, loading, error, currentActivePupup, changePopup, loadUsers, currentPage }) => {
+/*     const pov = () => {
+        loadUsers(currentPage);
+    } */
+    
     useEffect(() => {
         loadUsers(currentPage);
     },[]);
+    
     if (loading || cardsData == null) {
         return <Loading />
     }
