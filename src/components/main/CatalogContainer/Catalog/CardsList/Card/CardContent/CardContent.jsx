@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 
 const CardContent = ({ userData }) => {
     return (
-        <div className="card__content">
-            <h3 className="card__title">
+        <div className="user__content">
+            <h3 className="user__title">
                 {userData.last_name} {userData.first_name}
             </h3>
-            <p className="card__email">{userData.email}</p>
+            <p className="user__email">{userData.email}</p>
         </div>
     );
 };

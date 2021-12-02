@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 import dateFormat from "dateformat";
 import { DATE_MASK } from '../../../consts';
+import Button from '../../Button/Button';
 
 const getCharsData = (userData) => {
     const charsArray = [
@@ -52,10 +53,8 @@ const PopupColumns = ({ userData }) => {
                 <img srcSet={userData.avatar} width="520" height="340" alt={userData.email} />
             </div>
             <div className="popup__right">
-                <PopupChars
-                    userData={getCharsData(userData)}
-                />
-                <button className="button popup__button" type="button" onClick={onClickRedactionBtn}>Редактировать</button>
+                <PopupChars userData={getCharsData(userData)} />
+                <Button parentClassName="popup" type="button" textButton="Редактировать" onClick={onClickRedactionBtn} />
             </div>
         </div>
     );

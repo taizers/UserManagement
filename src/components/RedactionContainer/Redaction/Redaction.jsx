@@ -1,11 +1,11 @@
 import './Redaction.css';
-import PopupCloseBtn from '../../CloseButton/CloseButton';
 import RedactionInput from './RedactionInput/RedactionInput';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { pathLinks } from '../../../consts';
+import Button from '../../Button/Button';
 
 const Redaction = ({ currentActivePupup, updateServerData, currentPage, changePopup }) => {
     let [lastName, setLastName] = useState(currentActivePupup.last_name);
@@ -54,11 +54,12 @@ const Redaction = ({ currentActivePupup, updateServerData, currentPage, changePo
     return (
         <div className="redaction">
             <div className="redaction__inner">
-                <PopupCloseBtn onClick={onCloseButtonClick} />
                 <form className="redaction__form" action="/" onSubmit={onSubmitForm}>
                     <RedactionInput name="Фамилия" value={lastName} onChangeValue={onChangeInputFamily} />
                     <RedactionInput name="Имя" value={firstName} onChangeValue={onChangeInputName} />
-                    <button disabled={isDisabled} className="button popup__button" type="submit">Сохранить</button>
+
+                    <Button parentClassName="redaction" isDisabled={isDisabled} textButton="Сохранить" />
+                    <Button parentClassName="redaction" type="button" textButton="Выход" onClick={onCloseButtonClick} />
                 </form>
             </div>
         </div>

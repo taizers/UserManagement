@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 const Pagination = ({ pages }) => {
     return (
-        <ul className="pagination">
+        <ul className="results__pagination pagination">
             {
                 pages.map(item => (
                     <PaginationItem

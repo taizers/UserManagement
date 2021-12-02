@@ -1,9 +1,4 @@
-.pagination li {
-    display: inline;
-    text-align: center;
-}
-
-.pagination a {
+.pagination-item {
     float: left;
     display: block;
     font-size: 14px;
@@ -17,31 +12,31 @@
     background: #fff;
 }
 
-.pagination a:hover {
-    background: #eee;
+.pagination-item:hover {
+    background: rgba(165, 162, 211, 0.404);
 }
 
-.pagination a.active {
+.pagination-item.active {
     cursor: default;
 }
 
-.pagination a:active {
+.pagination-item:active {
     outline: none;
 }
 
-.pagination a.active, .pagination a:active {
+.pagination-item.active, .pagination-item:active {
     border-color: #4285F4;
     background-color: var(--main-blue);;
     color: #fff;
 }
 
-.pagination li:first-child a {
+.pagination-item:first-child {
     -moz-border-radius: 6px 0 0 6px;
     -webkit-border-radius: 6px;
     border-radius: 6px 0 0 6px;
 }
 
-.pagination li:last-child a {
+.pagination-item:last-child {
     -moz-border-radius: 0 6px 6px 0;
     -webkit-border-radius: 0;
     border-radius: 0 6px 6px 0;

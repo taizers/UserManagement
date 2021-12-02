@@ -1,4 +1,4 @@
-import { requestForData, changeActivePopup, loadDataFailed } from "../reducer/actionCreators";
+import { loadDataFailed } from "../reducer/actionCreators";
 import { call, put, takeEvery } from "redux-saga/effects";
 import { updateUser } from '../api/updateUser'
 

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 const Catalog = ({ cardsData, totalPages, changePopup }) => {
     return (
-        <div className="social-network-app__results results">
+        <div className="social-network__results results">
             <CardsList cardsData={cardsData} changePopup={changePopup} />
             <Pagination pages={totalPages} />
         </div>

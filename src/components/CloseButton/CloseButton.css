@@ -1,4 +1,4 @@
-.popup__close {
+.close-button {
     position: absolute;
     top: 33px;
     right: 35px;
@@ -10,19 +10,19 @@
     cursor: pointer;
 }
 
-.popup__close svg {
+.close-button svg {
     fill: #4456B1;
     transition: var(--animation);
 }
 
-.popup__close:hover svg{
+.close-button:hover svg{
     fill: var(--light-blue);
 }
 
-.popup__close:active svg {
+.close-button:active svg {
     fill: var(--dark-blue);
     outline: none;
 }
-.popup__close:active {
+.close-button:active {
     outline: none;
 }

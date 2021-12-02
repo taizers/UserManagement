@@ -1,5 +1,4 @@
 import './PaginationItem.css';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { requestForData } from '../../../../../../reducer/actionCreators';
 import { getCurrentPage } from '../../../../../../selectors/loadData';
@@ -11,7 +10,7 @@ const PaginationItem = ({ currentPage, number, onChangePage }) => {
     };
 
     return (
-        <li> <Link to="" className={currentPage === number ? "active" : ""} onClick={onPaginationItemClick}> {number}</Link> </li>
+        <li className={currentPage === number ? "pagination-item active" : "pagination-item"} onClick={onPaginationItemClick}> {number} </li>
     );
 };
 

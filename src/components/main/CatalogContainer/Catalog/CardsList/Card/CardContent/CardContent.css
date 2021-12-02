@@ -1,9 +1,9 @@
-.card__content {
+.user__content {
     width: 400px;
     padding: 20px 40px;
 }
 
-.card__title {
+.user__title {
     margin: 0 0 6px;
     font-size: 25px;
     line-height: 2;
@@ -11,28 +11,14 @@
     color: var(--main-blue);
 }
 
-.card__title a {
+.user__title a {
 display: block;
 overflow: hidden;
 white-space: nowrap;
 text-overflow: ellipsis;
-transition: var(--animation);
 }
 
-.card__title a:hover {
-color: var(--light-blue);
-}
-
-.card__title a:active {
-color: var(--dark-blue);
-}
-
-.card__title a:focus {
-outline: none;
-color: var(--dark-blue);
-}
-
-.card__email {
+.user__email {
 font-size: 20px;
 line-height: 1.4;
 font-weight: 500;

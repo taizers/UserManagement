@@ -9,7 +9,7 @@ const Card = ({ userData, changePopup }) => {
     };
     return (
 
-        <li className="results__item product" onClick={onCardClick}>
+        <li className="results__user user" onClick={onCardClick}>
             <CardImage src={userData.avatar} email={userData.email} id={userData.id} />
             <CardContent userData={userData} />
         </li>

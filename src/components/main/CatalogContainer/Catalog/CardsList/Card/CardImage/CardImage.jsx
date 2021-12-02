@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const CardImage = ({ src, email }) => {
     return (
-        <div className="card__image">
+        <div className="user__image">
             <img src={src} width="200" height="200" alt={email} />
         </div>
     );
