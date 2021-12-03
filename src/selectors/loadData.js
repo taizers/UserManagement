@@ -1,5 +1,5 @@
 export const getCurrentPage = (state) => {
-    return state.loadData.currentPage;
+    return state.changeCurrentPage.currentPage;
 };
 
 export const getUsersData = (state) => {

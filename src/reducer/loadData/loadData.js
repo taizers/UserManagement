@@ -1,7 +1,6 @@
 import { actionType } from "../../consts";
 
 const initialState = {
-    currentPage: 1,
     currentCardsData: null,
     pages: null,
     loading: false,
@@ -27,11 +26,6 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 loading: false,
                 error: action.payload,
-            };
-        case actionType.CHANGE_CURRENT_PAGE:
-            return {
-                ...state,
-                currentPage: action.payload,
             };
         default:
             return state;

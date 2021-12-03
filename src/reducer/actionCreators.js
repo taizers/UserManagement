@@ -20,7 +20,7 @@ export const requestForData = (currentPage) => ({
 });
 
 export const changeCurrentPage = (currentPage) => ({
-    type: actionType.СHANGE_CURRENT_PAGE,
+    type: actionType.CHANGE_CURRENT_PAGE,
     payload: currentPage,
 });
 
