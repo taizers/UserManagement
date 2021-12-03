@@ -1,40 +1,38 @@
 import { actionType } from "../consts";
 
-const changeActivePopup = (currentActivePupupData) => { return {
+export const changeActivePopup = (currentActivePupupData) => ({
     type: actionType.CHANGE_ACTIVE_POPUP,
     payload: currentActivePupupData,
-}};
+});
 
-const pushedData = (data, id, page) => { return {
+export const pushedData = (data, id, page) => ({
     type: actionType.PUSHED_DATA,
     payload: {
         data: data,
         id: id,
         page: page,
     },
-}};
+});
 
-const requestForData = (currentPage) => { return {
+export const requestForData = (currentPage) => ({
     type: actionType.LOAD_DATA,
     payload: currentPage,
-}};
+});
 
-const changeCurrentPage = (currentPage) => { return {
-    type: actionType.CHANGE_CURRENT_PAGE,
+export const changeCurrentPage = (currentPage) => ({
+    type: actionType.СHANGE_CURRENT_PAGE,
     payload: currentPage,
-}};
+});
 
-const loadDataSuccessed = (users, pages) => { return {
+export const loadDataSuccessed = (users, pages) => ({
     type: actionType.LOAD_DATA_SUCCEEDED,
     payload: {
         users: users,
         pages: pages,
     },
-}};
+});
 
-const loadDataFailed = (error) => { return {
+export const loadDataFailed = (error) => ({
     type: actionType.LOAD_DATA_FAILED,
     payload: error,
-}};
-
-export {changeActivePopup, pushedData, requestForData, loadDataSuccessed, loadDataFailed, changeCurrentPage};
+});
