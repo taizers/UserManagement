@@ -4,7 +4,7 @@ const initialState = {
     currentCardsData: null,
     pages: null,
     loading: false,
-    error: false,
+    error: null,
 };
 
 const reducer = (state = initialState, action) => {

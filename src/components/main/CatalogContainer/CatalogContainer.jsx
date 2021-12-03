@@ -16,12 +16,12 @@ const CatalogContainer = ({ cardsData, totalPages, loading, error, currentActive
         loadUsers(currentPage);
     },[loadUsers, currentPage]);
 
-    if (loading || cardsData == null) {
-        return <Loading />
-    }
-
     if (error) {
         return <ErrorPage error={error} />
+    }
+
+    if (loading || cardsData == null) {
+        return <Loading />
     }
 
     if (cardsData.length === 0) {
