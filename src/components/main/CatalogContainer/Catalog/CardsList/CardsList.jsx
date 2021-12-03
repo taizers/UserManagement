@@ -1,6 +1,7 @@
 import Card from './Card/Card';
 import './CardsList.css';
 import PropTypes from 'prop-types';
+import React from 'react';
 
 const CardsList = ({ cardsData, changePopup }) => {
     return (

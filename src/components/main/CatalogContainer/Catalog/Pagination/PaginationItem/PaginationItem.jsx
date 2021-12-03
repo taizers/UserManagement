@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { changeCurrentPage } from '../../../../../../reducer/actionCreators';
 import { getCurrentPage } from '../../../../../../selectors/loadData';
 import PropTypes from 'prop-types';
+import React from 'react';
 
 const PaginationItem = ({ currentPage, number, onChangePage }) => {
     const onPaginationItemClick = () => {

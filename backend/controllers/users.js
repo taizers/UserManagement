@@ -13,7 +13,7 @@ exports.getAllUsers = (req,res) => {
             .skip(pageOptions.page * pageOptions.limit)
             .limit(pageOptions.limit)
             .exec((error, document) => {
-                if(error) { res.status(500).json(error); return; };
+                if(error) { res.status(500).json(error); return; }
                 res.status(200).json({
                     "data":document,
                     "totalPages": totalPages,
@@ -41,7 +41,7 @@ exports.updateUserData = (req,res) => {
             returnDocument: "after"
         },
         function (err, result) {
-            if(err) { res.status(500).json(err); return; };
+            if(err) { res.status(500).json(err); return; }
             res.status(200).json(result);
         }
     )

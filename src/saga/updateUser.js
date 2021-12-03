@@ -4,7 +4,7 @@ import { updateUser } from '../api/updateUser'
 
 function* watchPushData() {
     yield takeEvery('PUSHED_DATA', pushDataAsync);
-};
+}
 
 function* pushDataAsync({ payload }) {
     try {
@@ -12,6 +12,6 @@ function* pushDataAsync({ payload }) {
     } catch (error) {
         yield put(loadDataFailed(error.message));
     }
-};
+}
 
 export default watchPushData;

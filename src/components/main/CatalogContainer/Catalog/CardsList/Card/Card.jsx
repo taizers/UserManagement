@@ -2,6 +2,7 @@ import './Card.css';
 import CardImage from './CardImage/CardImage';
 import CardContent from './CardContent/CardContent';
 import PropTypes from 'prop-types';
+import React from 'react';
 
 const Card = ({ userData, changePopup }) => {
     const onCardClick = () => {

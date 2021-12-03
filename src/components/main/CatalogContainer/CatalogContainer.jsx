@@ -44,7 +44,9 @@ CatalogContainer.propTypes = {
     loading: PropTypes.bool.isRequired,
     currentActivePupup: PropTypes.object,
     changePopup: PropTypes.func.isRequired,
+    loadUsers: PropTypes.func.isRequired,
     currentPage: PropTypes.number.isRequired,
+    error: PropTypes.string,
 };
 
 const mapStateToProps = (state, ownProps) => {
