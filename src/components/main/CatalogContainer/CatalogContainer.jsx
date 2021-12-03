@@ -11,15 +11,11 @@ import React from 'react';
 import { changeActivePopup, requestForData } from '../../../reducer/actionCreators';
 import { useEffect } from 'react';
 
-const CatalogContainer = ({ cardsData, totalPages, loading, error, currentActivePupup, changePopup, loadUsers, currentPage }) => {
-/*     const pov = () => {
-        loadUsers(currentPage);
-    } */
-    
+const CatalogContainer = ({ cardsData, totalPages, loading, error, currentActivePupup, changePopup, loadUsers, currentPage }) => {    
     useEffect(() => {
         loadUsers(currentPage);
-    },[]);
-    
+    },[loadUsers, currentPage]);
+
     if (loading || cardsData == null) {
         return <Loading />
     }

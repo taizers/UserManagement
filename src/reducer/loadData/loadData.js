@@ -13,7 +13,6 @@ const reducer = (state = initialState, action) => {
         case actionType.LOAD_DATA:
             return {
                 ...state,
-                currentPage: action.payload,
                 loading: true,
             };
         case actionType.LOAD_DATA_SUCCEEDED:
@@ -28,6 +27,11 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 loading: false,
                 error: action.payload,
+            };
+        case actionType.CHANGE_CURRENT_PAGE:
+            return {
+                ...state,
+                currentPage: action.payload,
             };
         default:
             return state;

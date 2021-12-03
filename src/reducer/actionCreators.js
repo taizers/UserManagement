@@ -19,6 +19,11 @@ const requestForData = (currentPage) => { return {
     payload: currentPage,
 }};
 
+const changeCurrentPage = (currentPage) => { return {
+    type: actionType.CHANGE_CURRENT_PAGE,
+    payload: currentPage,
+}};
+
 const loadDataSuccessed = (users, pages) => { return {
     type: actionType.LOAD_DATA_SUCCEEDED,
     payload: {
@@ -32,4 +37,4 @@ const loadDataFailed = (error) => { return {
     payload: error,
 }};
 
-export {changeActivePopup, pushedData, requestForData, loadDataSuccessed, loadDataFailed};
+export {changeActivePopup, pushedData, requestForData, loadDataSuccessed, loadDataFailed, changeCurrentPage};
