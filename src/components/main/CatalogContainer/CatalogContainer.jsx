@@ -16,12 +16,12 @@ const CatalogContainer = ({ cardsData, totalPages, loading, error, currentActive
         loadUsers(currentPage);
     },[loadUsers, currentPage]);
 
-    if (loading || cardsData == null) {
-        return <Loading />
-    }
-
     if (error) {
         return <ErrorPage error={error} />
+    }
+
+    if (loading || cardsData == null) {
+        return <Loading />
     }
 
     if (cardsData.length === 0) {
@@ -44,7 +44,9 @@ CatalogContainer.propTypes = {
     loading: PropTypes.bool.isRequired,
     currentActivePupup: PropTypes.object,
     changePopup: PropTypes.func.isRequired,
+    loadUsers: PropTypes.func.isRequired,
     currentPage: PropTypes.number.isRequired,
+    error: PropTypes.string,
 };
 
 const mapStateToProps = (state, ownProps) => {

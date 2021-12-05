@@ -1,6 +1,7 @@
 import './Pagination.css';
 import PaginationItem from './PaginationItem/PaginationItem';
 import PropTypes from 'prop-types';
+import React from 'react';
 
 /* const getPages = (totalPages) => {
     

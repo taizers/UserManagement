@@ -4,7 +4,7 @@ import { getUsersData } from '../api/loadData';
 
 function* watchFetchData() {
     yield takeEvery('LOAD_DATA', loadUsersDataAsync);
-};
+}
 
 function* loadUsersDataAsync({ payload }) {
     try {
@@ -13,6 +13,6 @@ function* loadUsersDataAsync({ payload }) {
     } catch (error) {
         yield put(loadDataFailed(error.message));
     }
-};
+}
 
 export default watchFetchData;
