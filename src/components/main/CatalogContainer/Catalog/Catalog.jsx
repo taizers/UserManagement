@@ -2,6 +2,7 @@ import './Catalog.css';
 import CardsList from './CardsList/CardsList';
 import Pagination from './Pagination/Pagination';
 import PropTypes from 'prop-types';
+import React from 'react';
 
 const Catalog = ({ cardsData, totalPages, changePopup }) => {
     return (
