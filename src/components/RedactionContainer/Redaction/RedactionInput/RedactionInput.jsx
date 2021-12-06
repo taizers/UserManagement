@@ -1,5 +1,6 @@
 import './RedactionInput.css';
 import PropTypes from 'prop-types';
+import React from 'react';
 
 const RedactionInput = ({ value, name, onChangeValue }) => {
     return (

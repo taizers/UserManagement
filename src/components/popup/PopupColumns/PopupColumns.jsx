@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import dateFormat from "dateformat";
 import { DATE_MASK } from '../../../consts';
 import Button from '../../Button/Button';
+import React from 'react';
 
 const getCharsData = (userData) => {
     const charsArray = [

@@ -24,6 +24,7 @@ const Popup = ({ popup, changePopup }) => {
 
 Popup.propTypes = {
     popup: PropTypes.object.isRequired,
+    changePopup: PropTypes.func.isRequired,
 };
 
 const mapDispathToProps = (dispath) => {

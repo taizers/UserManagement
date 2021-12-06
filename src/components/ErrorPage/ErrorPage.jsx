@@ -1,4 +1,6 @@
-import './ErrorPage.css'
+import './ErrorPage.css';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const ErrorPage = ({ error }) => {
     return (
@@ -11,6 +13,10 @@ const ErrorPage = ({ error }) => {
             </div>
         </section>
     );
+};
+
+ErrorPage.propTypes = {
+    error: PropTypes.string,
 };
 
 export default ErrorPage;

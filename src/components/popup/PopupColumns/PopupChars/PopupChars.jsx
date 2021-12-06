@@ -1,6 +1,7 @@
 import './PopupChars.css';
 import PopupChar from './PopupChar/PopupChar';
 import PropTypes from 'prop-types';
+import React from 'react';
 
 const PopupChars = ({ userData }) => {
     return (

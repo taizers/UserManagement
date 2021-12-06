@@ -8,6 +8,7 @@ import {
 } from 'react-router-dom';
 import RedactionContainer from '../RedactionContainer/RedactionContainer';
 import { pathLinks } from '../../consts';
+import React from 'react';
 
 const App = () => {
   return <Routes>

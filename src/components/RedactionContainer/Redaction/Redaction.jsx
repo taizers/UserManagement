@@ -70,6 +70,7 @@ Redaction.propTypes = {
     currentActivePupup: PropTypes.object.isRequired,
     updateServerData: PropTypes.func.isRequired,
     changePopup: PropTypes.func.isRequired,
+    currentPage: PropTypes.number.isRequired,
 };
 
 export default Redaction;

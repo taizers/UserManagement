@@ -1,5 +1,6 @@
 import './CardImage.css';
 import PropTypes from 'prop-types';
+import React from 'react';
 
 const CardImage = ({ src, email }) => {
     return (

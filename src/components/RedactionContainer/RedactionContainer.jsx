@@ -7,6 +7,7 @@ import ErrorPage from '../ErrorPage/ErrorPage';
 import { getActivePopup } from '../../selectors/setActivPopup';
 import { getCurrentPage } from '../../selectors/loadData';
 import { useParams } from 'react-router';
+import React from 'react';
 
 const RedactionContainer = ({ currentActivePupup, updateServerData, currentPage, changePopup }) => {
     const pathParams = useParams();

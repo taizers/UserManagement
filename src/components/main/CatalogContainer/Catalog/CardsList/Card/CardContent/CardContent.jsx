@@ -1,5 +1,6 @@
 import './CardContent.css';
 import PropTypes from 'prop-types';
+import React from 'react';
 
 const CardContent = ({ userData }) => {
     return (

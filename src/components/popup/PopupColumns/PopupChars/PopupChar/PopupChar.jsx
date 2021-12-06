@@ -1,4 +1,6 @@
 import './PopupChar.css'
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const PopupChar = ({ name, value }) => {
     return (
@@ -7,6 +9,11 @@ const PopupChar = ({ name, value }) => {
             <div className="chars__value">{value}</div>
         </li>
     );
+};
+
+PopupChar.propTypes = {
+    name: PropTypes.string.isRequired,
+    value: PropTypes.string.isRequired,
 };
 
 export default PopupChar;
