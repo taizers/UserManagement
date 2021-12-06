@@ -14,7 +14,7 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 loading: true,
             };
-        case actionType.LOAD_DATA_SUCCEEDED:
+        case actionType.LOAD_DATA_SUCCESSED:
             return {
                 ...state,
                 currentCardsData: action.payload.users,

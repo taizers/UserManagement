@@ -25,7 +25,7 @@ export const changeCurrentPage = (currentPage) => ({
 });
 
 export const loadDataSuccessed = (users, pages) => ({
-    type: actionType.LOAD_DATA_SUCCEEDED,
+    type: actionType.LOAD_DATA_SUCCESSED,
     payload: {
         users: users,
         pages: pages,
