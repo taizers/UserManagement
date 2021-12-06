@@ -8,6 +8,8 @@
     "@testing-library/user-event": "~12.8.3",
     "axios": "0.24.0",
     "dateformat": "~5.0.2",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.6",
     "react": "~17.0.2",
     "react-dom": "~17.0.2",
     "react-redux": "~7.2.6",

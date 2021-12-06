@@ -1,4 +1,5 @@
 import './CloseButton.css';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 const CloseButton = ({ onClick }) => {
