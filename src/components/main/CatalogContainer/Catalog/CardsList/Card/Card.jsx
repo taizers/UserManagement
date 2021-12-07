@@ -11,7 +11,7 @@ const Card = ({ userData, changePopup }) => {
     return (
 
         <li className="results__user user" onClick={onCardClick}>
-            <CardImage src={userData.avatar} email={userData.email} id={userData.id} />
+            <CardImage src={userData.avatar} email={userData.email} />
             <CardContent userData={userData} />
         </li>
     );

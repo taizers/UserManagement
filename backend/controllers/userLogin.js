@@ -16,10 +16,8 @@ exports.signUp = (req, res) => {
     UserLogin.findOne({ login: body.login })
     .then((user) => {
         if (user) {
-            console.log("+");
             res.status(401).json('Пользователь уже существует')
         }else {
-            console.log("-");
             newUser.save()
                 .then((result) => res.json({login: result._doc.login, role: result._doc.role}))
                 .catch((error) => res.status(400).json('Ошибка: ' + error))

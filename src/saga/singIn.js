@@ -8,9 +8,10 @@ function* watchFetchUser() {
 
 function* loadUserAsync({ payload }) {
     try {
-        const usersData = yield call(loadUser, payload);
+        const usersData = yield call(loadUser, payload.data);
         if (usersData) {
             yield put(loadUserSuccessed(usersData));
+            yield payload.history('/home');
         }else {
             yield put(loadUserFailed("Пользователь не найден, либо не правильный пароль"));
         }

@@ -8,7 +8,7 @@ import {
 } from 'react-router-dom';
 import RedactionContainer from '../RedactionContainer/RedactionContainer';
 import LoginContainer from '../LoginContainer/LoginContainer';
-import Reg from '../Reg/Reg'
+import AddEmployee from '../AddEmployee/AddEmployee';
 import { pathLinks } from '../../consts';
 import React from 'react';
 
@@ -18,7 +18,7 @@ const App = () => {
     <Route path={pathLinks.redaction} element={<RedactionContainer />} />
     <Route path={pathLinks.error} element={<ErrorPage />} />
     <Route path={pathLinks.login} element={<LoginContainer />} />
-    <Route path={pathLinks.reg} element={<Reg />} />
+    <Route path={pathLinks.addEmpl} element={<AddEmployee />} />
     <Route path="/" element={<Navigate replace to={pathLinks.home} />} />
     <Route path="*" element={<Navigate replace to={pathLinks.error} />} />
   </Routes>

@@ -3,12 +3,14 @@ import { reducer as loadData } from './loadData/loadData';
 import { reducer as singIn } from './singIn/singIn';
 import { reducer as setActivPopup } from './setActivPopup/setActivPopup';
 import { reducer as changeCurrentPage } from './changeCurrentPage/changeCurrentPage';
+import { reducer as createUser } from './createUser/createUser';
 
 const reducer = combineReducers({
     loadData,
     setActivPopup,
     changeCurrentPage,
     singIn,
+    createUser,
 });
 
 export default reducer;

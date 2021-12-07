@@ -12,7 +12,7 @@ import React from 'react';
 const RedactionContainer = ({ currentActivePupup, updateServerData, currentPage, changePopup }) => {
     const pathParams = useParams();
 
-    if (currentActivePupup && +currentActivePupup.id === +pathParams.id) {
+    if (currentActivePupup && currentActivePupup._id === pathParams.id) {
         return <Redaction currentActivePupup={currentActivePupup} updateServerData={updateServerData} currentPage={currentPage} changePopup={changePopup} />
     }
 

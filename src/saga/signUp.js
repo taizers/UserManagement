@@ -8,9 +8,9 @@ function* watchSignUpUser() {
 
 function* loadUserAsync({ payload }) {
     try {
-        const usersData = yield call(signUpUser, payload);
-        yield console.log(usersData);
+        const usersData = yield call(signUpUser, payload.data);
         yield put(loadUserSuccessed(usersData));
+        yield payload.history('/home');
     } catch (error) {
         yield put(loadUserFailed(error.message));
     }

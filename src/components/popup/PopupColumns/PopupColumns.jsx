@@ -21,12 +21,15 @@ const getCharsData = (userData) => {
             name: "Имя",
             value: userData.first_name
         },
-        {
+    ];
+    
+    if (userData.email) {
+        charsArray.push({
             id: "email" + userData.email,
             name: "Почта",
             value: userData.email
-        },
-    ];
+        });
+    }
 
     if (userData.updatedAt) {
         const lastUpdateDate = dateFormat(userData.updatedAt, DATE_MASK);
@@ -40,12 +43,20 @@ const getCharsData = (userData) => {
     return charsArray;
 };
 
-const PopupColumns = ({ userData }) => {
+const PopupColumns = ({ userData, deleteUser, userRole }) => {
     const navigate = useNavigate();
-    const pathToRedaction = generatePath(pathLinks.redaction, { id: userData.id });
+    const pathToRedaction = generatePath(pathLinks.redaction, { id: userData._id });
 
     const onClickRedactionBtn = () => {
         navigate(pathToRedaction);
+    };
+
+    const onClickMoreDetailsBtn = () => {
+        navigate(pathToRedaction);
+    };
+
+    const onClickDeleteBtn = () => {
+        deleteUser(userData._id);
     };
 
     return (
@@ -55,7 +66,14 @@ const PopupColumns = ({ userData }) => {
             </div>
             <div className="popup__right">
                 <PopupChars userData={getCharsData(userData)} />
-                <Button parentClassName="popup" type="button" textButton="Редактировать" onClick={onClickRedactionBtn} />
+                {userRole? 
+                    <>
+                        <Button parentClassName="popup" type="button" textButton="Подробнее" onClick={onClickMoreDetailsBtn} />
+                        <Button parentClassName="popup" type="button" textButton="Редактировать" onClick={onClickRedactionBtn} />
+                        <Button parentClassName="popup" type="button" textButton="Удалить" onClick={onClickDeleteBtn} />
+                    </>
+                :null
+                }
             </div>
         </div>
     );
@@ -63,6 +81,8 @@ const PopupColumns = ({ userData }) => {
 
 PopupColumns.propTypes = {
     userData: PropTypes.object.isRequired,
+    deleteUser: PropTypes.func.isRequired,
+    userRole: PropTypes.string,
 };
 
 export default PopupColumns;

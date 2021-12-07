@@ -13,8 +13,12 @@ import { useEffect } from 'react';
 
 const CatalogContainer = ({ cardsData, totalPages, loading, error, currentActivePupup, changePopup, loadUsers, currentPage }) => {    
     useEffect(() => {
-        loadUsers(currentPage);
-    },[loadUsers, currentPage]);
+            loadUsers(currentPage);
+        },
+        [
+            loadUsers, currentPage
+        ]
+    );
 
     if (error) {
         return <ErrorPage error={error} />

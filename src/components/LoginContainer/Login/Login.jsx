@@ -8,7 +8,7 @@ import CloseButton from '../../CloseButton/CloseButton';
 import { useNavigate } from 'react-router';
 import { pathLinks } from '../../../consts';
 
-const Login = ({ onSignIn }) => {
+const Login = ({ onSignIn, isLoading, error }) => {
     let [login, setLogin] = useState();
     let [password, setPassword] = useState();
     let [key, setKey] = useState();
@@ -58,6 +58,8 @@ const Login = ({ onSignIn }) => {
                 {isSignIn ? null : <Input name="Ключ" type="password" parentClassName="reg" onChangeValue={changeKey} /> }
                 <Button parentClassName="form-login" textButton={isSignIn? "Войти": "Зарегистрироваться"} />
                 <Button parentClassName="form-signUp" type="button" textButton={isSignIn? "Нет аккаунта?": "К авторизации"} onClick={changeSignIn} />
+                {isLoading? <h3 className="form-login__loading">Loading...</h3> : null}
+                {error? <h3 className="form-login__error">{error}</h3> : null}
             </form>
         </div>
     );

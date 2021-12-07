@@ -8,7 +8,7 @@ const CardsList = ({ cardsData, changePopup }) => {
         <ul className="results__list">
             {
                 cardsData.map(item => (
-                    <Card key={item.id} userData={item} changePopup={changePopup} />
+                    <Card key={item._id} userData={item} changePopup={changePopup} />
                 ))
             }
         </ul>

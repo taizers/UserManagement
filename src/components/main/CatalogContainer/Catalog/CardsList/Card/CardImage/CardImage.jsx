@@ -11,8 +11,8 @@ const CardImage = ({ src, email }) => {
 };
 
 CardImage.propTypes = {
-    src: PropTypes.string.isRequired,
-    email: PropTypes.string.isRequired,
+    src: PropTypes.string,
+    email: PropTypes.string,
 };
 
 export default CardImage;

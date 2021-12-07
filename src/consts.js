@@ -4,6 +4,7 @@ export const pathLinks = {
     error: '/error',
     login: '/login',
     reg: '/reg',
+    addEmpl: '/addEmpl'
 };
 
 export const USERS_ON_PAGE = 6;
@@ -22,4 +23,8 @@ export const actionType = {
     SING_UP_USER_SUCCESSED: 'SING_UP_USER_SUCCESSED',
     SING_IN_USER_FAILED: 'SING_IN_USER_FAILED',
     SING_UP_USER_FAILED: 'SING_UP_USER_FAILED',
+    CREATE_USER_SUCCESSED: 'CREATE_USER_SUCCESSED',
+    CREATE_USER_FAILED: 'CREATE_USER_FAILED',
+    CREATE_USER: 'CREATE_USER',
+    DELETE_USER: 'DELETE_USER',
 };

@@ -32,7 +32,7 @@ const Redaction = ({ currentActivePupup, updateServerData, currentPage, changePo
                 last_name: lastName,
             };
 
-            updateServerData(formData, currentActivePupup.id, currentPage);
+            updateServerData(formData, currentActivePupup._id, currentPage);
             setDisabledButton(isDisabled = true);
         }
     };

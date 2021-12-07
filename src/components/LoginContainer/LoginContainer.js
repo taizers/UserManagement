@@ -6,8 +6,10 @@ import { loadUser, signUpUser } from '../../reducer/actionCreators';
 import { getUserRole, getUserIsLoading, getUserError } from '../../selectors/singIn';
 import React from 'react';
 import CryptoJS from 'crypto-js';
+import { useNavigate } from 'react-router';
 
 const LoginContainer = ({ signIn, isLoading, error, signUp }) => {
+    const history = useNavigate();
     const onSignIn = (login, password, isLogin) => {
         const data = {
             login: login,
@@ -15,9 +17,9 @@ const LoginContainer = ({ signIn, isLoading, error, signUp }) => {
             role: "manager",
         };
         if (isLogin) {
-            signIn(data);
+            signIn(data, history);
         }else 
-            signUp(data);
+            signUp(data, history);
     };
 
     return <Login onSignIn={onSignIn} error={error} isLoading={isLoading} />
@@ -41,8 +43,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispathToProps = (dispath) => {
     return {
-        signIn: (data) => dispath(loadUser(data)),
-        signUp: (data) => dispath(signUpUser(data)),
+        signIn: (data, history) => dispath(loadUser(data, history)),
+        signUp: (data, history) => dispath(signUpUser(data, history)),
     }
 };
 

@@ -11,6 +11,8 @@ import watchFetchData from './saga/loadData';
 import watchPushData from './saga/updateUser';
 import watchFetchUser from './saga/singIn';
 import watchSignUpUser from './saga/signUp';
+import watchCreateUser from './saga/createUser';
+import watchDeleteUser from './saga/deleteUser'
 
 const init = () => {
   const sagaMiddleware = createSagaMiddleware();
@@ -20,6 +22,8 @@ const init = () => {
   sagaMiddleware.run(watchPushData);
   sagaMiddleware.run(watchFetchUser);
   sagaMiddleware.run(watchSignUpUser);
+  sagaMiddleware.run(watchCreateUser);
+  sagaMiddleware.run(watchDeleteUser);
 
   ReactDOM.render(
     <Provider store={store}>

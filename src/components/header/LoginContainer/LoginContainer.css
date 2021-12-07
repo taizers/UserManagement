@@ -1,12 +1,23 @@
-.login-buttons {
+.header__login {
     position: absolute;
     top: 50%;
-    right: 5%;
+    right: 10%;
     transform: translateY(-50%);
     display: flex;
+}
+
+.login__name{
+    color: #fff;
+    align-self: center;
+    margin-right: 30px;
 }
 
 .login__button {
     margin-top: 0;
     min-width: 100px;
+}
+
+.add-in-employee__button {
+    margin-left: 30px;
+    margin-top: 0;
 }
