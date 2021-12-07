@@ -4,7 +4,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    min-width: 142px;
+    min-width: 60%;
     min-height: 40px;
     border: none;
     padding: 0;
@@ -36,6 +36,6 @@
 }
   
 .button:disabled {
-    background-color: var(--disabled-blue);
+    background-color: var(--main-blue);
     cursor: default;
 }

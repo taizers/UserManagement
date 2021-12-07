@@ -36,3 +36,23 @@ export const loadDataFailed = (error) => ({
     type: actionType.LOAD_DATA_FAILED,
     payload: error,
 });
+
+export const loadUser = (loginData) => ({
+    type: actionType.SING_IN_USER,
+    payload: loginData,
+});
+
+export const loadUserSuccessed = (userRole) => ({
+    type: actionType.SING_IN_USER_SUCCESSED,
+    payload: userRole,
+});
+
+export const loadUserFailed = (error) => ({
+    type: actionType.SING_IN_USER_FAILED,
+    payload: error,
+});
+
+export const signUpUser = (loginData) => ({
+    type: actionType.SING_UP_USER,
+    payload: loginData,
+});

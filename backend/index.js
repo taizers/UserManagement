@@ -18,7 +18,9 @@ mongoose.connect(uri, async(err)=>{
 mongoose.connection.once('open', () => { console.log('connect db') })
 
 const usersRouter = require('./routes/users');
+const usersLoginRouter = require('./routes/userLogin');
 
+app.use('/login', usersLoginRouter);
 app.use('/users', usersRouter);
 
 app.listen(port, () => {

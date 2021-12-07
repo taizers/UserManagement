@@ -1,0 +1,12 @@
+.login-buttons {
+    position: absolute;
+    top: 50%;
+    right: 5%;
+    transform: translateY(-50%);
+    display: flex;
+}
+
+.login__button {
+    margin-top: 0;
+    min-width: 100px;
+}

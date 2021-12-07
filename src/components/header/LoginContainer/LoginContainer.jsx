@@ -1,21 +1,20 @@
 import './LoginContainer.css';
 import React from 'react';
 import Button from '../../Button/Button';
+import { useNavigate } from 'react-router';
+import { pathLinks } from '../../../consts';
 
 const LoginContainer = () => {
-    const onRegClick = () => {
-
-    }
+    const navigate = useNavigate();
 
     const onloginClick = () => {
-        
+        navigate(pathLinks.login);
     }
 
     return (
-        <>
-            <Button parentClassName="login" textButton="Войти" type = "button" onClick={onRegClick} />
-            <Button parentClassName="reg" textButton="Регистрация" type = "button" onClick={onloginClick} />
-        </>
+        <div className="login-buttons">
+            <Button parentClassName="login" textButton="Войти" type = "button" onClick={onloginClick} />
+        </div>
     );
 };
 

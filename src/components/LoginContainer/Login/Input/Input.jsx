@@ -4,7 +4,7 @@ import React from 'react';
 
 const Input = ({ value, name, onChangeValue = null, type = "text", parentClassName }) => {
     return (
-        <div className={parentClassName + "__input"}>
+        <div className={parentClassName ? parentClassName + "__input input" : "input"}>
             <label htmlFor={value + name}>{name}</label>
             <input type={type} id={value + name} name={name} defaultValue={value} onChange={onChangeValue} />
         </div>
