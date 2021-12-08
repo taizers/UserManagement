@@ -27,6 +27,16 @@ const reducer = (state = initialState, action) => {
                 loading: false,
                 error: action.payload,
             };
+        case actionType.FIND_USER:
+            return {
+                ...state,
+                loading: true,
+            };
+        case actionType.CLEAR_ERROR:
+            return {
+                ...state,
+                error: null,
+            };
         default:
             return state;
     }

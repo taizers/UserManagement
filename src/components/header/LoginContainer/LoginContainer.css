@@ -19,5 +19,27 @@
 
 .add-in-employee__button {
     margin-left: 30px;
+    margin-right: 30px;
+    margin-top: 0;
+}
+
+.login__find-form {
+    display: flex;
+    margin-top: 0;
+    height: 40px;
+    position: relative;
+    right: 30%;
+}
+
+.login__find-form .find-form__input {
+    margin-top: -3px;
+    margin-right: 20px;
+}
+
+.find-form__button {
+    margin-top: 0;
+}
+
+.login-update-user__button {
     margin-top: 0;
 }

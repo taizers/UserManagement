@@ -8,10 +8,10 @@ import { getUsersData, getPagesCount, getIsLoading, getError, getCurrentPage } f
 import { getActivePopup } from '../../../selectors/setActivPopup';
 import Catalog from './Catalog/Catalog';
 import React from 'react';
-import { changeActivePopup, requestForData } from '../../../reducer/actionCreators';
+import { changeActivePopup, requestForData, clearError } from '../../../reducer/actionCreators';
 import { useEffect } from 'react';
 
-const CatalogContainer = ({ cardsData, totalPages, loading, error, currentActivePupup, changePopup, loadUsers, currentPage }) => {    
+const CatalogContainer = ({ cardsData, totalPages, loading, error, currentActivePupup, changePopup, loadUsers, currentPage, clearErrorPage }) => {    
     useEffect(() => {
             loadUsers(currentPage);
         },
@@ -19,9 +19,12 @@ const CatalogContainer = ({ cardsData, totalPages, loading, error, currentActive
             loadUsers, currentPage
         ]
     );
+    const onCloseErrorPage = () => {
+        clearErrorPage();
+    }
 
     if (error) {
-        return <ErrorPage error={error} />
+        return <ErrorPage error={error} onCloseErrorPage={onCloseErrorPage} />
     }
 
     if (loading || cardsData == null) {
@@ -49,6 +52,7 @@ CatalogContainer.propTypes = {
     currentActivePupup: PropTypes.object,
     changePopup: PropTypes.func.isRequired,
     loadUsers: PropTypes.func.isRequired,
+    clearErrorPage: PropTypes.func.isRequired,
     currentPage: PropTypes.number.isRequired,
     error: PropTypes.string,
 };
@@ -68,6 +72,7 @@ const mapDispathToProps = (dispath) => {
     return {
         changePopup: (popupData) => dispath(changeActivePopup(popupData)),
         loadUsers: (currentPage) => dispath(requestForData(currentPage)),
+        clearErrorPage: () => dispath(clearError()),
     }
 };
 

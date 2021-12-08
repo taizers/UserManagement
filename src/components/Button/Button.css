@@ -4,10 +4,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    min-width: 60%;
+    min-width: 100px;
     min-height: 40px;
     border: none;
-    padding: 0;
+    padding: 5px 10px;
   
     font-weight: 600;
     font-size: 15px;
@@ -20,19 +20,14 @@
 }
   
 .button:hover {
-    background-color: var(--light-blue);
+    background-color: var(--light-blue) ;
   
     cursor: pointer;
 }
   
 .button:active {
     outline: none;
-    background-color: var(--dark-blue);
-}
-  
-.button:focus {
-    outline: none;
-    background-color: var(--dark-blue);
+    background-color: var(--dark-blue) ;
 }
   
 .button:disabled {

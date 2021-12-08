@@ -48,18 +48,18 @@ const Login = ({ onSignIn, isLoading, error }) => {
             }
         }
     }
-
+    console.log(error);
     return (
         <div className="login__wrapper">
             <form onSubmit={onSubmitLogin} className="form-login" >
                 <CloseButton onClick={onCloseButtonClick} />
-                <Input name="Логин" type="email" parentClassName="login" onChangeValue={changeLogin}/>
-                <Input name="Пароль" type="password" parentClassName="login" onChangeValue={changePassword}/>
+                <Input labelValue="Логин" name="email" type="email" parentClassName="login" onChangeValue={changeLogin}/>
+                <Input labelValue="Пароль" name="password" type="password" parentClassName="login" onChangeValue={changePassword}/>
                 {isSignIn ? null : <Input name="Ключ" type="password" parentClassName="reg" onChangeValue={changeKey} /> }
                 <Button parentClassName="form-login" textButton={isSignIn? "Войти": "Зарегистрироваться"} />
                 <Button parentClassName="form-signUp" type="button" textButton={isSignIn? "Нет аккаунта?": "К авторизации"} onClick={changeSignIn} />
                 {isLoading? <h3 className="form-login__loading">Loading...</h3> : null}
-                {error? <h3 className="form-login__error">{error}</h3> : null}
+                {error ? <h3 className="form-login__error">{error}</h3> : null}
             </form>
         </div>
     );

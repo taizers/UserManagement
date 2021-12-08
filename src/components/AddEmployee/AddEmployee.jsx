@@ -52,11 +52,11 @@ const AddEmployee = ({ createUser }) => {
     return (
         <div className="create-employee__wrapper">
             <form onSubmit={onSubmitLogin} className="create-employee__form" >
-                <Input name="Фамилия" type="text" parentClassName="create-employee" onChangeValue={changeLastName}/>
-                <Input name="Имя" type="text" parentClassName="create-employee" onChangeValue={changeFirstName}/>
+                <Input labelValue="Фамилия" name="Фамилия" type="text" parentClassName="create-employee" onChangeValue={changeLastName}/>
+                <Input labelValue="Имя" name="Имя" type="text" parentClassName="create-employee" onChangeValue={changeFirstName}/>
 
-                <Input name="Email" type="email" parentClassName="create-employee" onChangeValue={changeEmail}/>
-                <Input name="Ссылка на фото" type="text" parentClassName="create-employee" onChangeValue={changePhotoLink}/>
+                <Input labelValue="Email" name="Email" type="email" parentClassName="create-employee" onChangeValue={changeEmail}/>
+                <Input labelValue="Ссылка на фото" name="Ссылка на фото" type="text" parentClassName="create-employee" onChangeValue={changePhotoLink}/>
                 <Button parentClassName="create-employee" textButton="Добавить" />
                 <Button parentClassName="create-employee-exit" type="button" textButton="Выход" onClick={onExitButtonClick} />
             </form>

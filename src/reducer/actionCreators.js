@@ -82,3 +82,13 @@ export const deleteUser = (id) => ({
     type: actionType.DELETE_USER,
     payload: id,
 });
+
+
+export const findData = (data) => ({
+    type: actionType.FIND_USER,
+    payload: data,
+});
+
+export const clearError = () => ({
+    type: actionType.CLEAR_ERROR,
+});
