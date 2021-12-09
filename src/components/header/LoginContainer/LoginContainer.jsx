@@ -58,6 +58,10 @@ const LoginContainer = ({ userRole, logOut, findUser, requestData, currentPage }
     }
     return (
         <div className="header__login login">
+            <form action="/" className="login__find-form unlogin" onSubmit={onFindFormSubmit}>
+                <Input name="request" type="text" parentClassName="find-form" onChangeValue={changeRequest} />
+                <Button parentClassName="find-form" textButton="Найти" />
+            </form>
             <Button parentClassName="login" textButton="Войти" type = "button" onClick={onloginClick} />
         </div>
     );

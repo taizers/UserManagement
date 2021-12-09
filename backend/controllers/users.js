@@ -1,4 +1,13 @@
 const User = require('../models/user.model');
+const AboutUser = require('../models/userAllData');
+
+exports.getAllAboutUser = (req,res) => {
+    const id = req.params.id;
+
+    AboutUser.findOne({ id: id })
+    .then(user => res.json(user))
+    .catch(err => res.status(400).json('Error: ' + err));
+};
 
 exports.getAllUsers = (req,res) => {
     const pageOptions = {

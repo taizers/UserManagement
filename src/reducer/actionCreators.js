@@ -88,6 +88,18 @@ export const findData = (data) => ({
     type: actionType.FIND_USER,
     payload: data,
 });
+export const loadAllAboutUser = (id, history) => ({
+    type: actionType.LOAD_ALL_ABOUT_USER,
+    payload: {
+        data: id,
+        history: history,
+    },
+});
+
+export const loadAllAboutUserSuccessed = (data) => ({
+    type: actionType.LOAD_ALL_ABOUT_USER_SUCCESSED,
+    payload: data,
+});
 
 export const clearError = () => ({
     type: actionType.CLEAR_ERROR,

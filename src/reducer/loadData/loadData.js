@@ -2,6 +2,7 @@ import { actionType } from "../../consts";
 
 const initialState = {
     currentCardsData: null,
+    allUserData: null,
     pages: null,
     loading: false,
     error: null,
@@ -36,6 +37,11 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 error: null,
+            };
+        case actionType.LOAD_ALL_ABOUT_USER_SUCCESSED:
+            return {
+                ...state,
+                allUserData: action.payload
             };
         default:
             return state;

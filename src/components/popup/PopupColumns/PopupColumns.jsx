@@ -43,7 +43,7 @@ const getCharsData = (userData) => {
     return charsArray;
 };
 
-const PopupColumns = ({ userData, deleteUser, userRole }) => {
+const PopupColumns = ({ userData, deleteUser, userRole, showAllAboutUser }) => {
     const navigate = useNavigate();
     const pathToRedaction = generatePath(pathLinks.redaction, { id: userData._id });
 
@@ -52,7 +52,7 @@ const PopupColumns = ({ userData, deleteUser, userRole }) => {
     };
 
     const onClickMoreDetailsBtn = () => {
-        navigate(pathToRedaction);
+        showAllAboutUser(userData._id, navigate);
     };
 
     const onClickDeleteBtn = () => {
@@ -66,7 +66,7 @@ const PopupColumns = ({ userData, deleteUser, userRole }) => {
             </div>
             <div className="popup__right">
                 <PopupChars userData={getCharsData(userData)} />
-                {userRole? 
+                {(userRole && userRole.role === "manager")? 
                     <>
                         <Button parentClassName="popup" type="button" textButton="Подробнее" onClick={onClickMoreDetailsBtn} />
                         <Button parentClassName="popup" type="button" textButton="Редактировать" onClick={onClickRedactionBtn} />
@@ -82,7 +82,9 @@ const PopupColumns = ({ userData, deleteUser, userRole }) => {
 PopupColumns.propTypes = {
     userData: PropTypes.object.isRequired,
     deleteUser: PropTypes.func.isRequired,
-    userRole: PropTypes.string,
+    showAllAboutUser: PropTypes.func.isRequired,
+    userRole: PropTypes.object,
+
 };
 
 export default PopupColumns;

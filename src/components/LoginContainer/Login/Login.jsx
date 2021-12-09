@@ -48,7 +48,7 @@ const Login = ({ onSignIn, isLoading, error }) => {
             }
         }
     }
-    console.log(error);
+    
     return (
         <div className="login__wrapper">
             <form onSubmit={onSubmitLogin} className="form-login" >

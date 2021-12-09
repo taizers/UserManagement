@@ -1,0 +1,39 @@
+.about-user {
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background-color: var(--popup-overlay);
+}
+
+.about-user__inner {
+    width: 400px;
+    height: calc(100vh - 200px);
+    display: flex;
+    flex-direction: column;
+    padding: 32px 34px;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--white);
+    border-radius: 20px;
+    justify-content: center;
+    text-decoration: none;
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+
+.about-user__inner::-webkit-scrollbar {
+    display: none;
+}
+
+.about-user__list {
+    padding-left: 0;
+    margin-top: 150px;
+}

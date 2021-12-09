@@ -5,6 +5,9 @@ export const getCurrentPage = (state) => {
 export const getUsersData = (state) => {
     return state.loadData.currentCardsData;
 };
+export const getAllUserData = (state) => {
+    return state.loadData.allUserData;
+};
 
 export const getPagesCount = (state) => {
     return state.loadData.pages;

@@ -4,7 +4,8 @@ export const pathLinks = {
     error: '/error',
     login: '/login',
     reg: '/reg',
-    addEmpl: '/addEmpl'
+    addEmpl: '/addEmpl',
+    allAboutUser: '/user/:id/all',
 };
 
 export const USERS_ON_PAGE = 6;
@@ -30,4 +31,6 @@ export const actionType = {
     FIND_USER: 'FIND_USER',
     FIND_USER_SUCCEEDED: 'FIND_USER_SUCCEEDED',
     CLEAR_ERROR: 'CLEAR_ERROR',
+    LOAD_ALL_ABOUT_USER_SUCCESSED: 'LOAD_ALL_ABOUT_USER_SUCCESSED',
+    LOAD_ALL_ABOUT_USER: 'LOAD_ALL_ABOUT_USER',
 };

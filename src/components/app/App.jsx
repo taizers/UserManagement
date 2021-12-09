@@ -16,6 +16,7 @@ import PropTypes from 'prop-types';
 import { getUserRole } from '../../selectors/singIn';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
 import { useNavigate } from 'react-router';
+import AllAboutUser from '../AllAboutUser/AllAboutUser'
 
 const App = ({ userRole }) => {
   const navigate = useNavigate();
@@ -33,6 +34,9 @@ const App = ({ userRole }) => {
     </Route>
     <Route exact path={pathLinks.addEmpl} element={<PrivateRoute isAuthenticated={userRole? true : false} path={pathLinks.login} />}>
       <Route exact path={pathLinks.addEmpl} element={<AddEmployee />}/>
+    </Route>
+    <Route exact path={pathLinks.allAboutUser} element={<PrivateRoute isAuthenticated={userRole? true : false} path={pathLinks.login} />}>
+      <Route exact path={pathLinks.allAboutUser} element={<AllAboutUser />}/>
     </Route>
     <Route path="/" element={<Navigate replace to={pathLinks.home} />} />
     <Route path="*" element={<Navigate replace to={pathLinks.error} />} />

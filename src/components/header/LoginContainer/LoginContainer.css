@@ -30,6 +30,9 @@
     position: relative;
     right: 30%;
 }
+.unlogin {
+    right: 175%;
+}
 
 .login__find-form .find-form__input {
     margin-top: -3px;
