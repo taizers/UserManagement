@@ -83,7 +83,6 @@ export const deleteUser = (id) => ({
     payload: id,
 });
 
-
 export const findData = (data) => ({
     type: actionType.FIND_USER,
     payload: data,

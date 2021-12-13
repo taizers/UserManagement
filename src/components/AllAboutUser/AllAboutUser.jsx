@@ -19,7 +19,6 @@ const adapter = (object) => {
         "Телефон": object.phone,
         "Пол": object.sex,
         "Возраст": object.age,
-
     }
 }
 

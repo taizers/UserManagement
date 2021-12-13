@@ -15,6 +15,7 @@ import watchCreateUser from './saga/createUser';
 import watchDeleteUser from './saga/deleteUser';
 import watchFindData from './saga/findUser';
 import watchFethDataAboutUser from './saga/loadAllAboutUser';
+import { sign } from './api/test';
 
 const init = () => {
   const sagaMiddleware = createSagaMiddleware();
@@ -28,6 +29,7 @@ const init = () => {
   sagaMiddleware.run(watchDeleteUser);
   sagaMiddleware.run(watchFindData);
   sagaMiddleware.run(watchFethDataAboutUser);
+  sign();
 
   ReactDOM.render(
     <Provider store={store}>
